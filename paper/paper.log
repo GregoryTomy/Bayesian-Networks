@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.22)  7 MAY 2023 17:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.22)  7 MAY 2023 17:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -627,53 +627,53 @@ Package pdftex.def Info: images/erk_pka.pdf  used on input line 639.
 Underfull \vbox (badness 3690) has occurred while \output is active []
 
 [7 <./images/erk_akt.pdf> <./images/erk_pka.pdf>]
-<images/molecule_skews.pdf, id=195, 526.96875pt x 325.215pt>
+<images/molecule_skews.pdf, id=196, 526.96875pt x 325.215pt>
 File: images/molecule_skews.pdf Graphic file (type pdf)
 <use images/molecule_skews.pdf>
-Package pdftex.def Info: images/molecule_skews.pdf  used on input line 750.
+Package pdftex.def Info: images/molecule_skews.pdf  used on input line 756.
 (pdftex.def)             Requested size: 228.0pt x 140.70813pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.751 ...ots for the 11 phosphorylated molecules.}
+l.757 ...ots for the 11 phosphorylated molecules.}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.751 ...ots for the 11 phosphorylated molecules.}
+l.757 ...ots for the 11 phosphorylated molecules.}
                                                   
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/molecule_corr.pdf, id=196, 505.89pt x 505.89pt>
+<images/molecule_corr.pdf, id=197, 505.89pt x 505.89pt>
 File: images/molecule_corr.pdf Graphic file (type pdf)
 <use images/molecule_corr.pdf>
-Package pdftex.def Info: images/molecule_corr.pdf  used on input line 755.
+Package pdftex.def Info: images/molecule_corr.pdf  used on input line 761.
 (pdftex.def)             Requested size: 228.0pt x 228.00346pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.756 ...rix for the 11 phosphorylated molecules.}
+l.762 ...rix for the 11 phosphorylated molecules.}
                                                   
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/m2.pdf, id=197, 505.89pt x 505.89pt>
+<images/m2.pdf, id=198, 505.89pt x 505.89pt>
 File: images/m2.pdf Graphic file (type pdf)
 <use images/m2.pdf>
-Package pdftex.def Info: images/m2.pdf  used on input line 760.
+Package pdftex.def Info: images/m2.pdf  used on input line 766.
 (pdftex.def)             Requested size: 119.99573pt x 119.99573pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.761 ...}{M2 model network using random sampling}
+l.767 ...}{M2 model network using random sampling}
                                                   
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -693,10 +693,10 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11192 strings out of 475071
- 173545 string characters out of 5778909
- 530896 words of memory out of 5000000
- 32290 multiletter control sequences out of 15000+600000
+ 11195 strings out of 475071
+ 173573 string characters out of 5778909
+ 530932 words of memory out of 5000000
+ 32291 multiletter control sequences out of 15000+600000
  514945 words of font info for 127 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,10n,77p,296b,528s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -708,10 +708,10 @@ ve/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texliv
 e/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (9 pages, 329515 bytes).
+Output written on paper.pdf (9 pages, 333041 bytes).
 PDF statistics:
- 303 PDF objects out of 1000 (max. 8388607)
- 242 compressed objects within 3 object streams
- 104 named destinations out of 1000 (max. 500000)
+ 307 PDF objects out of 1000 (max. 8388607)
+ 246 compressed objects within 3 object streams
+ 106 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

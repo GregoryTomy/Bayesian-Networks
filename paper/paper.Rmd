@@ -326,6 +326,9 @@ The replication challenges encountered in this project highlight a significant f
 ## Software and programming language
 The data analysis for this project was conducted using the R programming language (v.4.2). The `bnlearn` package (v.4.8) was used for learning the graphical structure of the BN [@scutari2009]. Exact inference was implemented using the `gRain` (v.1.3) package [@hojsgaard2012]. The `tidyverse` package (v.2.0) was utilized for data processing and visualization [@wickham2019].
 
+## Code
+The code for this project and study along with datasets are available at \url{https://github.com/GregoryTomy/STAT5630-CompBayes.git}
+
 ## Figures and charts
 \begin{figure}[h]
 \centerline{\includegraphics[width = 19pc]{images/molecule_skews.pdf}}
