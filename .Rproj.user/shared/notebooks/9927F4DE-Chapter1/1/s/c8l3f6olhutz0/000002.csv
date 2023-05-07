@@ -1,0 +1,7 @@
+"0","```r
+library(gRain)
+
+# as.grain creates the junction tree
+# compile builds the probability table of the junction tree
+junction <- compile(as.grain(bn))
+```"

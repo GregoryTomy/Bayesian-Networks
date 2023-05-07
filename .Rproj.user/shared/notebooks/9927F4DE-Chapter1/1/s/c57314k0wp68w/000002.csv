@@ -1,0 +1,72 @@
+"0","```r
+fitted_2
+```"
+"1","
+  Bayesian network parameters
+
+  Parameters of node A (multinomial distribution)
+
+Conditional probability table:
+     adult       old     young 
+0.4717232 0.2082502 0.3200266 
+
+  Parameters of node E (multinomial distribution)
+
+Conditional probability table:
+ 
+, , S = F
+
+      A
+E          adult       old     young
+  high 0.6389365 0.8446809 0.5383632
+  uni  0.3610635 0.1553191 0.4616368
+
+, , S = M
+
+      A
+E          adult       old     young
+  high 0.7191617 0.8913043 0.8099825
+  uni  0.2808383 0.1086957 0.1900175
+
+
+  Parameters of node O (multinomial distribution)
+
+Conditional probability table:
+        emp       self 
+0.96506986 0.03493014 
+
+  Parameters of node R (multinomial distribution)
+
+Conditional probability table:
+ 
+       E
+R            high       uni
+  big   0.7175103 0.8653137
+  small 0.2824897 0.1346863
+
+  Parameters of node S (multinomial distribution)
+
+Conditional probability table:
+         F         M 
+0.4021956 0.5978044 
+
+  Parameters of node T (multinomial distribution)
+
+Conditional probability table:
+ 
+, , R = big
+
+       O
+T              emp       self
+  car   0.58452787 0.68553459
+  other 0.19954494 0.15723270
+  train 0.21592719 0.15723270
+
+, , R = small
+
+       O
+T              emp       self
+  car   0.54655295 0.72549020
+  other 0.07746979 0.25490196
+  train 0.37597726 0.01960784
+"

@@ -1,0 +1,12 @@
+"0","```r
+jres <- setEvidence(
+  junction, 
+  nodes = \"R\",
+  states = \"small\"
+)
+querygrain(jres, nodes = \"T\")$T
+```"
+"1","T
+       car      train      other 
+0.48388675 0.41708494 0.09902831 
+"

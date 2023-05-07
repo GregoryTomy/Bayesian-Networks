@@ -1,0 +1,27 @@
+"0","```r
+junction <- compile(as.grain(fitted))
+
+# set evidence
+evidence <- list(D = \"door1\", M = \"door2\")
+
+j_inst <- setEvidence(junction, 
+                     nodes = names(evidence), 
+                     states = unlist(evidence))
+fitted$P
+```"
+"1","
+  Parameters of node P (multinomial distribution)
+
+Conditional probability table:
+ P
+    door1     door2     door3 
+0.3333333 0.3333333 0.3333333 
+"
+"0","```r
+querygrain(j_inst, nodes = \"P\")
+```"
+"1","$P
+P
+    door1     door2     door3 
+0.3333333 0.0000000 0.6666667 
+"

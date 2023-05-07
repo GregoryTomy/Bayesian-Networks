@@ -1,0 +1,2 @@
+"0","avg_boot <- averaged.network(boot, threshold = 0.90)"
+"0","graphviz.plot(skeleton(avg_boot))"

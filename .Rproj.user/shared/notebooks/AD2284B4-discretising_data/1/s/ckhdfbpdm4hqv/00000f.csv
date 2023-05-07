@@ -1,0 +1,7 @@
+"0","disc_data <- map(dfs, ~discretize("
+"0","  .x,"
+"0","  method = ""hartemink"","
+"0","  breaks = 3, # the number of levels the variables will be discretized into"
+"0","  ibreaks = 60, # the number of levels the variables are initially discretized into"
+"0","  idisc = ""interval"""
+"0","))"

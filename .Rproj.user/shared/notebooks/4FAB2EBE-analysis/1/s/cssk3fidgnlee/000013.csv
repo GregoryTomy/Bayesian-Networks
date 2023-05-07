@@ -1,0 +1,3 @@
+"0","ldf <- ""[PKC][PKA|PKC][Raf|PKC:PKA][Mek|PKC:PKA:Raf][Erk|Mek:PKA][Akt|Erk:PKA][P38|PKC:PKA][Jnk|PKC:PKA][Plcg][PIP3|Plcg][PIP2|Plcg:PIP3]"""
+"0","target <- model2network(ldf)"
+"0","graphviz.plot(target)"

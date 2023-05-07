@@ -1,0 +1,16 @@
+"0","```r
+print8mn(condi4joint(
+  mn_rbmn, par = \"C\", pour = \"V\", x2 = 80
+))
+```"
+"1","    mu  s.d.
+C 65.6 8.542
+"
+"0","```r
+print8mn(condi4joint(
+  mn_rbmn, par = \"V\", pour = \"C\", x2 = 80
+))
+```"
+"1","    mu  s.d.
+V 65.6 8.542
+"

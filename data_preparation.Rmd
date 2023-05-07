@@ -1,0 +1,106 @@
+---
+title: "Data Preparation"
+output: html_notebook
+---
+
+# Libraries
+```{r}
+library(tidyverse)
+library(bnlearn)
+```
+# Data
+```{r}
+# observational
+df_obs <- read_csv("data/sachs1.csv")
+# intervention
+df_akt <- read_csv("data/interventions/3. cd3cd28+aktinhib.csv")
+
+df_g76 <- read_csv("data/interventions/4. cd3cd28+g0076.csv")
+
+df_psi <- read_csv("data/interventions/5. cd3cd28+psitect.csv")
+
+df_u26 <- read_csv("data/interventions/6. cd3cd28+u0126.csv")
+
+df_ly2 <- read_csv("data/interventions/7. cd3cd28+ly.csv")
+
+df_pma <- read_csv("data/interventions/8. pma.csv")
+
+df_b2p <- read_csv("data/interventions/9. b2camp.csv")
+
+df_list<- list(obs = df_obs, 
+            akt = df_akt, 
+            g76 = df_g76, 
+            psi = df_psi, 
+            u26 = df_u26, 
+            ly2 = df_ly2, 
+            pma = df_pma, 
+            b2p =df_b2p)
+```
+
+Here I first discretize each data set except for df_b2p. There is one column in there that is giving me trouble. 
+
+```{r}
+disc_list <- map(df_list[-8], ~discretize(
+  .x,
+  method = "hartemink",
+  breaks = 3,
+  ibreaks = 60, 
+  idisc = "quantile"
+))
+```
+
+
+Now, I discretize df_b2p without PKC column and then discretize the column separately using a different funciton. Is this ideal? No, but it works. Then I bring the two together to form one discretized dataset.
+```{r}
+db2p_1 <- discretize(
+  df_b2p[, -9],
+  method = "hartemink",
+  breaks = 3, # the number of levels the variables will be discretized into
+  ibreaks = 60, # the number of levels the variables are initially discretized into
+  idisc = "quantile" # the method used for the initial marginal discretization of the variables
+)
+
+db2p_2 <- discretize(
+  df_b2p[, 9],
+  method = "interval",
+  breaks = 3, # the number of levels the variables will be discretized into
+)
+
+db2p_list <- add_column(db2p_1, db2p_2, .before = "P38")
+
+```
+
+add back the dataframe to the discretized df list. Next I want to add a column INT that tracks which molecule was intervened. now we can combine these two make one large dataset. First let's rename the columns to make sure the are uniform. Next let's change the factors to 1, 2, 3 for levels of concentration low medium high.
+```{r}
+# full discretized df list
+disc_list2 <- c(disc_list, list(b2p = db2p_list))
+
+# INT list
+int_list <- c(0, 7, 9, 4, 2, 7, 9, 8)
+
+col_names <- c('Raf', 'Mek', 'Plcg', 'PIP2', 'PIP3', "Erk", "Akt",
+                   "PKA", "PKC", "P38", "Jnk", "INT")
+
+# I love pipes
+disc_list3 <- disc_list2 %>% 
+  map2(int_list, ~mutate(.x, INT = .y)) %>% 
+  map(~set_names(.x, col_names)) %>%
+  map(~ mutate_at(.x, vars(Raf:Jnk),~ factor(., labels = c('1', '2', '3'))))
+```
+
+## Save cleaned observational data
+
+```{r}
+names(df_obs) <- col_names[-12]
+write_csv(df_obs, "data/cleaned_obser_cont.csv")
+write_csv(disc_list3$obs, "data/cleaned_obser_disc.csv")
+```
+
+## Save cleaned full data
+```{r}
+disc_sachs <- bind_rows(disc_list3)
+head(disc_sachs)
+write_csv(disc_sachs, "data/cleaned_sachs.csv")
+```
+
+

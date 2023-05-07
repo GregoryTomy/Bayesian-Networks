@@ -1,0 +1,11 @@
+"0","```r
+# ridge regression example
+est_para$C <- penalized(
+  C ~ N + W,
+  lambda1 = 0,
+  lambda2 = 1.5,
+  data = cropdata1
+)
+```"
+"1","12
+"

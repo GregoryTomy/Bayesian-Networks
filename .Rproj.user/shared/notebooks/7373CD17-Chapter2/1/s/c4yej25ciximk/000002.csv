@@ -1,0 +1,13 @@
+"0","```r
+ci.test(
+  \"C\", \"W\", \"N\",
+  test = \"cor\", data = cropdata1
+)
+```"
+"1","
+	Pearson's Correlation
+
+data:  C ~ W | N
+cor = 0.70715, df = 197, p-value < 2.2e-16
+alternative hypothesis: true value is not equal to 0
+"

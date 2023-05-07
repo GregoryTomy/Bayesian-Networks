@@ -1,0 +1,22 @@
+"0","isachs <- read_table((""data/sachs.interventional.txt""))"
+"2","
+[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────────────────────[39m
+cols(
+  `""Raf""` = [32mcol_double()[39m,
+  `""Mek""` = [32mcol_double()[39m,
+  `""Plcg""` = [32mcol_double()[39m,
+  `""PIP2""` = [32mcol_double()[39m,
+  `""PIP3""` = [32mcol_double()[39m,
+  `""Erk""` = [32mcol_double()[39m,
+  `""Akt""` = [32mcol_double()[39m,
+  `""PKA""` = [32mcol_double()[39m,
+  `""PKC""` = [32mcol_double()[39m,
+  `""P38""` = [32mcol_double()[39m,
+  `""Jnk""` = [32mcol_double()[39m,
+  `""INT""` = [32mcol_double()[39m
+)
+"
+"0","col_names <- c('Raf', 'Mek', 'Plcg', 'PIP2', 'PIP3', ""Erk"", ""Akt"","
+"0","                   ""PKA"", ""PKC"", ""P38"", ""Jnk"", ""INT"")"
+"0","names(isachs) <- col_names"
+"0",""

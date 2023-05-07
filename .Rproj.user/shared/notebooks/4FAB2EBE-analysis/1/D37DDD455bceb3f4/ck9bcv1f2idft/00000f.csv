@@ -1,0 +1,8 @@
+"0","intscore <- custom.strength("
+"0","  netlist,"
+"0","  nodes = nodes,"
+"0","  cpdag = FALSE"
+"0",")"
+"0","intscore %>% "
+"0","  filter(strength > 0.9) %>% "
+"0","  arrange(desc(strength))"

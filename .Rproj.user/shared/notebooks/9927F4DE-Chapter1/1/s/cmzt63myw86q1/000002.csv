@@ -1,0 +1,11 @@
+"0","```r
+# # read in the data
+survey2 <- read.table(\"survey.txt\", header = TRUE)
+survey2 <- data.frame(map(survey2, as.factor))
+
+fitted <- bn.fit(my_dag_2, survey2, method = \"bayes\")
+
+my_dag_3 <- drop.arc(my_dag_2, from = \"E\", to = \"O\")
+
+fitted_2 <- bn.fit(my_dag_3, survey2, method = \"bayes\")
+```"

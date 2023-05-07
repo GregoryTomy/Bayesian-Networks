@@ -1,0 +1,6 @@
+"0","```r
+dag3 <- model2network(\"[A][S][E|A:S][O|E][R|E][T|O:R]\")
+all.equal(dag, dag3)
+```"
+"1","[1] TRUE
+"

@@ -1,0 +1,5 @@
+"0","```r
+cropdata2 <- read.table(\"data/cropdata2.txt\", header = TRUE)
+stru_3 <- iamb(cropdata2, test = \"cor\")
+graphviz.plot(stru_3)
+```"

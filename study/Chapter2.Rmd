@@ -1,0 +1,237 @@
+---
+title: "2 Bayesian Networks: Continuous Case Notebook "
+output: html_notebook
+---
+In this chapter we explore BN's focusing on modeling continuous data under a 
+**multivariate Normal assumption**.
+
+
+G = genetic potential
+E = environmental potential
+V = vegetative reserves
+N = number of seeds
+W = mean weight
+C = crop
+```{r}
+# rm(list = ls())
+library(bnlearn)
+library(tidyverse)
+library(rbmn)
+library(penalized)
+library(corpcor)
+```
+
+# Crop Analysis
+```{r}
+dag <- model2network("[G][E][V|G:E][N|V][W|V][C|N:W]")
+graphviz.plot(dag)
+```
+## Checking for marginal independence
+```{r}
+
+nano <- nodes(dag)
+
+for (n1 in nano) {
+  for (n2 in nano) {
+    if (dsep(dag, n1, n2)) {
+      cat(n1, "and", n2, "are independent.\n")
+    }
+  }
+}
+
+```
+## Check for condtional independence given V
+```{r}
+for (n1 in nano[nano != "V"]) {
+  for (n2 in nano[nano != "V"]) {
+    if (n1 < n2) {
+      if (dsep(dag, n1, n2, "V")) {
+      cat(n1, "and", n2, "are independent.\n")
+      }
+    }
+  }
+}
+```
+## Checking Paths
+```{r}
+path.exists(dag, from = "E", to = "C")
+```
+# Probabilistic Representation
+Store the local distributions in a list
+```{r}
+disE <- list(coef = c("(Intercept)" = 50), sd = 10)
+disG <- list(coef = c("(Intercept)" = 50), sd = 10)
+disV <- list(coef = c("(Intercept)" = -10.35534, E = 0.70711, G = 0.5),
+             sd = 5)
+disN <- list(coef = c("(Intercept)" = 45, V = 0.1), 
+             sd = 9.949874)
+disW <- list(coef = c("(Intercept)" = 15, V = 0.7), 
+             sd = 7.141428)
+disC <- list(coef = c("(Intercept)" = 0, N = 0.3, W = 0.7),
+             sd = 6.25)
+
+dis_list <- list(E = disE, G = disG, V = disV,
+                 N = disN, W = disW, C = disC)
+```
+
+```{r}
+gbn <- custom.fit(dag, dist = dis_list)
+```
+## Gaussian Bayesian Network
+### Assumptions
+1. every node follows a normal distribution
+2. root nodes are described by the respective marginal distributions
+3. the conditioning effect of parents on a node is given by a linear additive term in the mean, whilst the variance remains the same. That is, it is **assumed that the variance is specific to the node does not depend on the values of the parents**.
+4. the local distribution of each node is equivalent to a Gaussian linear model with an intercept and parent nodes as explanatory variables without any interaction term.
+
+```{r}
+gbn_rbmn <- bnfit2nbn(gbn)
+```
+The paremeters of the multivariate normal distribution can be derived numerically 
+```{r}
+gema_rbmn <- nbn2gema(gbn_rbmn)
+mn_rbmn <- gema2mn(gema_rbmn)
+print8mn(mn_rbmn)
+```
+The first column is the vector of marginal expectations (means).
+The second contains marginal standard deviations. 
+The remaining one contains the correlation matrix.
+
+The reason behind the choice of these particular values for the parameters in Table 2.1 is now apparent: all marginal distributions have the same mean and variance.
+
+# Estimating Parameters: Correlation Coefficients
+```{r}
+cropdata1 <- read.table("./data/cropdata1.txt", header = TRUE)
+round(head(cropdata1), 2)
+```
+We use bn.fit to produce parameter estimates. Note, bn.fit implements only the maximum likelihood estimator
+```{r}
+est_para <- bn.fit(dag, data = cropdata1)
+
+# replacing parameter estimates with custom ones
+# in this case its the same as the default MLE in bn.fit
+est_para$C <- lm(C ~ N + W, data = cropdata1)
+```
+We can use the **penalized** package to fit ridge, lasso and elastic net.
+```{r}
+# ridge regression example
+est_para$C <- penalized(
+  C ~ N + W,
+  lambda1 = 0,
+  lambda2 = 1.5,
+  data = cropdata1
+)
+```
+We see that the estiamted regression coefficiants for node C is close to the true values (gbn$C) but the estimated intercept is markedly different from the true intercept. We can correct this using lm and a null intercept
+```{r}
+est_para$C <- lm(C ~ N + W - 1, data = cropdata1)
+est_para$C
+```
+
+```{r}
+# lmC <- lm(C ~ N + W, data = cropdata1)
+lmC <- lm(C ~ N + W, data = cropdata1[, c("N", "W", "C")]) # dont need to do this
+coef(lmC)
+confint(lmC)
+```
+We see that the confidence intervals for the coefficients include their corresponding true values.
+```{r}
+lmC <- lm(C ~ N + W, data = cropdata1)
+coef(lmC)
+```
+# Learning the DAG Structure: Tests and Scores
+Often expert knowledge on th data is not detailed enough to completely specify the structure of the DAG. In such cases, if sufficient data are available, we can hope that a statistical procedure me help us in determining a small set. of conditional dependencies to translate into a spars BN. We focus on tests and scores specific to GBNs.
+
+## Conditional Independence Test
+The most common test is the exact test for partial correlations but these only expreess marginal linear dependencies between two variables. In GBNs we are usually interested in conditional dependencies. These do not have nice close form expressions but can be estimated numerically.
+
+### Finding partial correlations
+```{r}
+# correlation matrix for C, W, and N.
+cor_mat <- cor(cropdata1[, c("C", "W", "N")])
+# get inverse of the correltion matrix
+inv_cor <- cor2pcor(cor_mat)
+dimnames(inv_cor) <- dimnames(cor_mat)
+
+# partial correlation C, W | N
+inv_cor["C", "W"]
+
+# partial correlation C, N | W
+inv_cor["C", "N"]
+
+# partial correlation W, N | C
+inv_cor["N", "W"]
+```
+The same estimate can be produced using ci.test
+```{r}
+ci.test(
+  "C", "W", "N",
+  test = "cor", data = cropdata1
+)
+```
+We can say that C has a significant positive correlation with W given N and reject the null hypothesis of independence with an extremely small p-value.
+
+The cropdata1 data set is not very large and is likely to not contain enough information to learn the true structure of the DAG. We perform a naive attempt with one of the algorithms.
+```{r}
+stru_1 <- iamb(cropdata1, test = "cor")
+graphviz.plot(stru_1)
+```
+Not bad, the result is promising. Apart from the arc from V to N, the algorithm got the rest correct.
+In order to reduce the number of candidate DAGs and help the learning algorithm, we can impose some arcs in a *whitelist* and forbid others in a *blacklist*
+```{r}
+w1 <- matrix(c("V", "N"),ncol = 2)
+w1
+stru_2 <- iamb(cropdata1, test = "cor", whitelist = w1)
+graphviz.plot(stru_2)
+```
+Suppose we have a larger dataset. In this case the expected DAG is learnt.
+```{r}
+cropdata2 <- read.table("data/cropdata2.txt", header = TRUE)
+stru_3 <- iamb(cropdata2, test = "cor")
+graphviz.plot(stru_3)
+```
+Note: some arcs may be directed regardless of sample size because both directions are equivalent. A non-causal approach is unable to conclude which one is relevant. 
+
+## Network Scores
+```{r}
+score(dag, data = cropdata2, type = "bic-g")
+score(dag, data = cropdata2, type = "bge")
+```
+# Using Gaussian Bayesian Networks
+In this section we limit ourselves to using local distributions. We assume that the GBN is perfectly known and are interested in the probability of an event or in the distribution of some random variables, usually conditional on the values of other variables.
+
+## Exact Inference
+In an **nbn object** the GBN is described by the local distribtions.
+```{r}
+print8nbn(gbn_rbmn)
+```
+In a **gema object**, the GBN is describes by two generating matrices, a vector of expectations and a matrix multiplied by a $N(0,1)$ white noise.
+```{r}
+print8gema(gema_rbmn)
+```
+**condi4joint** in the **rbmn** package can be used to obtain conditional distributions for one or more nodes when the value of the others are fixed.
+```{r}
+print8mn(condi4joint(
+  mn_rbmn, par = "C", pour = "V", x2 = 80
+))
+
+print8mn(condi4joint(
+  mn_rbmn, par = "V", pour = "C", x2 = 80
+))
+```
+
+```{r}
+# conditional distribution of C given some arbitrary value of V
+unlist(condi4joint(mn_rbmn, par = "C", pour = "V", x2 = NULL))
+```
+This means that $$C|V \sim N(24 + 0.52V + 722.9625)$$
+
+## Approximate Inference
+
+
+
+
+
+
+
+

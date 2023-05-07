@@ -1,0 +1,241 @@
+---
+title: "Discretising Gene Expressions"
+output: html_notebook
+---
+
+
+# Libraries
+```{r}
+library(tidyverse)
+library(bnlearn)
+library(lattice)
+```
+
+# Data
+```{r}
+data <- read_csv("data/sachs1.csv")
+```
+
+# Discretising the data
+```{r}
+dsachs <- discretize(
+  data,
+  method = "hartemink",
+  breaks = 3, # the number of levels the variables will be discretized into
+  ibreaks = 60, # the number of levels the variables are initially discretized into
+  idisc = "quantile" # the method used for the initial marginal discretization of the variables
+)
+
+write_csv(dsachs, "sachs_obs.csv")
+```
+
+# Model averaging
+We can improve the quality of the structure learned from the data by averaging multiple
+CPDAGs. One approach is to apply bootstrap resampling to our discretized dataset
+```{r}
+boot <- boot.strength(
+  dsachs,
+  R = 500, # number of network structures
+  algorithm = "hc", # hill climbing
+  algorithm.args = list(score = "bde", iss = 10) # Bayesian Dirichlet equivalent uniform
+)
+
+```
+
+```{r}
+boot %>% 
+  filter(strength > 0.85 & direction >= 0.5)
+```
+```{r}
+boot %>% 
+  filter(strength > 0.5 & direction >= 0.5)
+```
+Interestingly, lowering the threshold from 85% to 50% does not change the results of the analysis, which seems to indicate that in this case the results are not sensitive to its value.
+
+We know build the average network using the 85% threshold
+
+## Averaged Network
+
+Since we cannot determine with any confidence the direction from the discretized data, we remove directions from the arcs which amounts to constructing a skeleton. 
+```{r}
+avg_boot <- averaged.network(boot, threshold = 0.85)
+avg_boot <- skeleton(avg_boot)
+graphviz.plot(avg_boot)
+```
+## I-C DAG
+```{r}
+nodes <- names(dsachs)
+start <- random.graph(
+  nodes,
+  method = "ic-dag",
+  num = 500,
+  every = 50
+)
+
+net_list <- map(start, function(net){
+  hc(dsachs, score = "bde", iss = 10, start = net)
+})
+
+net_list[1]
+```
+
+```{r}
+rnd <- custom.strength(net_list, nodes = nodes)
+rnd %>% 
+  filter(strength > 0.85 & direction >= 0.5)
+
+avg_start <- averaged.network(rnd, threshold = 0.85)
+```
+Two methods ofd averaging the network. Results confirm stability of the network.
+
+
+```{r}
+all.equal(cpdag(avg_boot), cpdag(avg_start))
+```
+
+
+# Significance Threshold
+```{r}
+all.equal(
+  averaged.network(boot, threshold = 0.5),
+  averaged.network(boot, threshold = 0.7)
+)
+```
+```{r}
+plot(ecdf(boot$strength), xlab = "arc strengths",
+  ylab = "cumulative distribution function", main = "",
+  xlim = c(0, 1.2), xaxt = 'n')
+abline(v = attr(boot, "threshold"), lty = 2)
+abline(v = 0.85, col = "grey", lty = 2)
+text(x = attr(boot, "threshold") , y = 0.07,
+     labels = "significant\narcs", pos = 4)
+arrows(attr(boot, "threshold"), 0.02, 1.1, 0.02, length = 0.1)
+text(x = attr(boot, "threshold"), y = 0.6, srt = 90,
+     labels = "estimated threshold", pos = 2)
+text(x = 0.85, y = 0.6, srt = 90, labels = "Sachs' threshold", pos = 2)
+axis(1, at = 0.2 * 0:5)
+```
+
+# Handling Interventional Data
+```{r}
+isachs <- read_table(("data/sachs.interventional.txt"))
+col_names <- c('Raf', 'Mek', 'Plcg', 'PIP2', 'PIP3', "Erk", "Akt",
+                   "PKA", "PKC", "P38", "Jnk", "INT")
+names(isachs) <- col_names
+
+```
+## Intervened protein
+```{r}
+unique(isachs$INT)
+colnames(isachs)[2] # generalization
+colnames(isachs)[4]
+colnames(isachs)[7]
+colnames(isachs)[8]
+colnames(isachs)[9]
+```
+## Creating the full data set
+```{r}
+# observational
+df_obs <- data %>%
+  mutate(INT = 0)
+# intervention
+df_akt <- read_csv("data/interventions/3. cd3cd28+aktinhib.csv")%>%
+  mutate(INT = 7) 
+
+df_g76 <- read_csv("data/interventions/4. cd3cd28+g0076.csv")%>%
+  mutate(INT = 9)
+
+df_psi <- read_csv("data/interventions/5. cd3cd28+psitect.csv")%>%
+  mutate(INT = 4)
+
+df_u26 <- read_csv("data/interventions/6. cd3cd28+u0126.csv")%>%
+  mutate(INT = 2)
+
+df_ly2 <- read_csv("data/interventions/7. cd3cd28+ly.csv")%>%
+  mutate(INT = 7)
+
+df_pma <- read_csv("data/interventions/8. pma.csv")%>%
+  mutate(INT = 9)
+
+df_b2p <- read_csv("data/interventions/9. b2camp.csv")%>%
+  mutate(INT = 8)
+```
+
+
+```{r}
+dfs <- list(df_obs, df_akt, df_g76, df_psi, df_u26, df_ly2, df_pma, df_b2p)
+
+# total data points
+reduce(map(dfs, nrow), `+`)
+
+# rename all the columns
+dfs <-map(dfs, ~set_names(.x, col_names))
+
+# create one df
+df_full <- bind_rows(dfs)
+
+unique(df_full$INT)
+```
+## Discretise 
+```{r}
+dfsachs <- discretize(
+  df_full[, -12],
+  method = "hartemink",
+  breaks = 3, # the number of levels the variables will be discretized into
+  ibreaks = 60, # the number of levels the variables are initially discretized into
+  idisc = "quantile", # the method used for the initial marginal discretization of the variables
+)
+dfsachs <- bind_cols(dfsachs, df_full$INT)
+names(dfsachs) <- col_names
+```
+
+```{r}
+dfsachs
+```
+
+
+```{r}
+unique(dfsachs$Raf)
+unique(dfsachs$Mek)
+```
+## Convert levels 1, 2, 3
+```{r}
+# Convert the levels to 1, 2, and 3
+dfsachs %>% 
+  mutate_at(vars(Raf:Jnk), ~factor(., labels = c('1', '2', '3')))
+```
+
+```{r}
+dfsachs
+```
+## Now with discretization for each of them
+```{r}
+# # observational
+# df_obs <- data 
+# # intervention
+# df_akt <- read_csv("data/interventions/3. cd3cd28+aktinhib.csv")
+# 
+# df_g76 <- read_csv("data/interventions/4. cd3cd28+g0076.csv")
+# 
+# df_psi <- read_csv("data/interventions/5. cd3cd28+psitect.csv")
+# 
+# df_u26 <- read_csv("data/interventions/6. cd3cd28+u0126.csv")
+# 
+# df_ly2 <- read_csv("data/interventions/7. cd3cd28+ly.csv")
+# 
+# df_pma <- read_csv("data/interventions/8. pma.csv")
+# 
+# df_b2p <- read_csv("data/interventions/9. b2camp.csv")
+# 
+# dfs <- list(df_obs, df_akt, df_g76, df_psi, df_u26, df_ly2, df_pma, df_b2p)
+```
+
+df_b2p is giving trouble
+```{r}
+
+```
+
+```{r}
+
+```
+

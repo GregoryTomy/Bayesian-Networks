@@ -1,0 +1,40 @@
+"0","```r
+# list of local distributions 
+cpt <- list(A = A.prob, S = S.prob, E = E.prob, 
+            O = O.prob, R = R.prob, T = T.prob)
+
+# combine DAG with cpt
+bn <- custom.fit(dag, cpt)
+print(nparams(bn))
+```"
+"1","[1] 21
+"
+"0","```r
+print(arcs(bn))
+```"
+"1","     from to 
+[1,] \"A\"  \"E\"
+[2,] \"S\"  \"E\"
+[3,] \"E\"  \"O\"
+[4,] \"E\"  \"R\"
+[5,] \"O\"  \"T\"
+[6,] \"R\"  \"T\"
+"
+"0","```r
+print(bn$R)
+```"
+"1","
+  Parameters of node R (multinomial distribution)
+
+Conditional probability table:
+ 
+       E
+R       high  uni
+  small 0.25 0.20
+  big   0.75 0.80
+"
+"0","```r
+A.lv
+```"
+"1","[1] \"young\" \"adult\" \"old\"  
+"

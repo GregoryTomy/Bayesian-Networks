@@ -1,0 +1,24 @@
+"0","```r
+# correlation matrix for C, W, and N.
+cor_mat <- cor(cropdata1[, c(\"C\", \"W\", \"N\")])
+# get inverse of the correltion matrix
+inv_cor <- cor2pcor(cor_mat)
+dimnames(inv_cor) <- dimnames(cor_mat)
+
+# partial correlation C, W | N
+inv_cor[\"C\", \"W\"]
+```"
+"1","[1] 0.7071522
+"
+"0","```r
+# partial correlation C, N | W
+inv_cor[\"C\", \"N\"]
+```"
+"1","[1] 0.3826989
+"
+"0","```r
+# partial correlation W, N | C
+inv_cor[\"N\", \"W\"]
+```"
+"1","[1] -0.2875974
+"

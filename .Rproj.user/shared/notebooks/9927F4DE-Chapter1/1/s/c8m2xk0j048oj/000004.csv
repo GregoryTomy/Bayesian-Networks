@@ -1,0 +1,7 @@
+"0","```r
+
+bn.fit.dotplot(
+  bn_mle$T, main = \"Travel\",
+  xlab = \"Pr(T | R, O)\", ylab = \"\"
+)
+```"

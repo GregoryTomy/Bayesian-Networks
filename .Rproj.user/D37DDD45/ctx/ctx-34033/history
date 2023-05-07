@@ -1,0 +1,512 @@
+)
+junction <- compile(as.grain(fitted))
+jdoor1<- setEvidence(
+junction,
+nodes = "D",
+states = "door1"
+)
+querygrain(jdoor1, nodes = "m")
+junction <- compile(as.grain(fitted))
+jdoor1<- setEvidence(
+junction,
+nodes = "D",
+states = "door1"
+)
+querygrain(jdoor1, nodes = "M")
+junction <- compile(as.grain(fitted))
+jdoor1<- setEvidence(
+junction,
+nodes = "D",
+states = "door1"
+)
+querygrain(jdoor1, nodes = "M")
+graphviz.chart(jdoor1)
+updated_1 <- cpquery(fitted, nodes = D, evidence = list("D" = "door1"))
+updated_1 <- cpquery(fitted, nodes = "D", evidence = list("D" = "door1"))
+updated_1 <- cpquery(fitted, nodes = "D", evidence = list(D = "door1"))
+updated_1 <- cpquery(fitted, nodes = "D", evidence = (D == "door1"))
+updated_1 <- cpquery(fitted, (D == "door1"))
+arcs(fitted)
+cpquery(fitted, evidence = (D == "door1"))
+cpdist(fitted,  evidence = (D == "door1"))
+cpdist(fitted, nodes = "D", evidence = (D == "door1"))
+junction <- compile(as.grain(fitted))
+jdoor1<- setEvidence(
+junction,
+nodes = "D",
+states = "door1"
+)
+querygrain(jdoor1, nodes = "M")
+junction <- compile(as.grain(fitted))
+jdoor1<- setEvidence(
+junction,
+nodes = "D",
+states = "door1"
+)
+querygrain(jdoor1)
+fitted
+setEvidence(fitted, nodes = "D", states = "door1")
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2)
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2)
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+junction <- compile(as.grain(fitted))
+jdoor1<- setEvidence(
+junction,
+nodes = "D",
+states = "door1"
+)
+querygrain(jdoor1)
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", E = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+querygrain(j_inst)
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", P = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+querygrain(j_inst)
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", P = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+querygrain(j_inst, nodes = "P")
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", M = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+querygrain(j_inst, nodes = "P")
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", M = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+querygrain(j_inst)
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", M = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+querygrain(j_inst, nodes = "P")
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", M = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+fitted$M
+querygrain(j_inst, nodes = "P")
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", M = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+fitted$P
+querygrain(j_inst, nodes = "P")
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", M = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+fitted$P
+querygrain(j_inst, nodes = "P") %>%
+gt()
+library(bnlearn)
+library(gRain)
+library(tidyverse)
+library(gt)
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", M = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+fitted$P
+querygrain(j_inst, nodes = "P") %>%
+gt()
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", M = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+fitted$P
+as.dataframe(querygrain(j_inst, nodes = "P")) %>%
+gt()
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", M = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+fitted$P
+as.data.frame(querygrain(j_inst, nodes = "P")) %>%
+gt()
+junction <- compile(as.grain(fitted))
+# set evidence
+evidence <- list(D = "door1", M = "door2")
+j_inst <- setEvidence(junction,
+nodes = names(evidence),
+states = unlist(evidence))
+fitted$P
+querygrain(j_inst, nodes = "P")
+as.data.frame(querygrain(j_inst, nodes = "P"))
+as.data.frame(querygrain(j_inst, nodes = "P")) %>% gt()
+as.data.frame(querygrain(j_inst, nodes = "P")) %>% gt()
+kable(uerygrain(j_inst, nodes = "P"))
+kable(querygrain(j_inst, nodes = "P"))
+knitr::kable(querygrain(j_inst, nodes = "P"))
+knitr::kable(t(querygrain(j_inst, nodes = "P"))
+)
+knitr::kable(querygrain(j_inst, nodes = "P"), format = "markdown")
+```{r, fig.height=8, fig.width=8}
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = 3)
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+M_inst <- array(c(0, 1, 0), dim = 3, dimnames = list(M = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+M_inst <- array(c(0, 1, 0), dim = 3, dimnames = list(M = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+M_inst <- array(c(0, 1, 0), dim = 3, dimnames = list(M = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_inst)
+fitted2 <- custom.fit(sdag, cpt2)
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+M_inst <- array(c(0, 1, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_prob)
+fitted2 <- custom.fit(sdag, cpt2)
+graphviz.chart(fitted2, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+M_inst <- array(c(0, 1, 0), dim = 3, dimnames = list(D = levels_D))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_inst)
+fitted2 <- custom.fit(sdag, cpt2)
+D_inst <- array(c(1, 0, 0), dim = 3, dimnames = list(D = levels_D))
+M_inst <- array(c(0, 1, 0), dim = 3, dimnames = list(M = levels_M))
+# CPT for the model
+cpt2 <- list(D = D_inst, P = P_prob, M = M_inst)
+fitted2 <- custom.fit(sdag, cpt2)
+fitted.values()
+fitted.values("D")
+fitted.values()
+fitted
+mutilated(fitted, list(D = 'door1))
+mutilated(fitted, list(D = 'door1))
+mutilated(fitted, list(D = "door1"))
+test <- mutilated(fitted, list(D = "door1"))
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test)
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test, scale = c(2, 3))
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test, scale = c(1, 3))
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test, scale = c(1, 5))
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test, scale = c(0, 5))
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test, scale = c(1, 5))
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test, scale = c(1, 2))
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test, scale = c(1, 1))
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test, scale = c(2, 1))
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test, scale = c(3, 1))
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test, scale = c(2, 3))
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test, scale = c(2, 3))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test, scale = c(2, 3))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test, scale = c(2, 3))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test)
+library(bnlearn)
+library(gRain)
+library(tidyverse)
+library(gt)
+sdag <- model2network("[P][D][M|P:D]")
+graphviz.plot(sdag, layout = "dot")
+# set the levels
+levels_D <- c("door1", "door2", "door3")
+levels_P <- c("door1", "door2", "door3")
+levels_M <- c("door1", "door2", "door3")
+# NPTs
+D_prob <- array(rep(1/3, 3), dim = 3, dimnames = list(D = levels_D))
+P_prob <- array(rep(1/3, 3), dim = 3, dimnames = list(P = levels_P))
+M_prob <- array(
+c(0, 0.5, 0.5, 0, 0, 1, 0, 1, 0,
+0, 0, 1, 0.5, 0 , 0.5, 1, 0, 0,
+0, 1, 0, 1, 0, 0, 0.5, 0.5, 0),
+dim = c(3, 3, 3),
+dimnames = list(M = levels_M, D = levels_D, P = levels_P)
+)
+# CPT for the model
+cpt <- list(D = D_prob, P = P_prob, M = M_prob)
+fitted <- custom.fit(sdag, cpt)
+arcs <- as.data.frame(arcs(fitted))
+nparams(fitted)
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test)
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen"
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen")
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test)
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test)
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test, scale = c(2, 3))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test, scale = c(2, 3))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test, scale = c(2, 3))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test, scale = c(2, 3))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test)
+graphviz.chart(fitted, type = "barprob", strip.bg = "lightskyblue",
+bar.col = "darkgreen", scale = c(2,3))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+graphviz.chart(test)
+test <- mutilated(fitted, list(D = "door1")
+graphviz.chart(test)
+test <- mutilated(fitted, list(D = "door1"))
+graphviz.chart(test)
+test <- mutilated(fitted, list(D = "door1"))
+test2 <- mutilated(test, list(M = "door2"))
+graphviz.chart(test2)
+test <- mutilated(fitted, list(D = "door1"))
+test2 <- mutilated(test, list(M = "door2"))
+test2
+test <- mutilated(fitted, list(D = "door1"))
+test2 <- mutilated(test, list(M = "door3"))
+cpquery()
+test <- mutilated(fitted, list(D = "door1"))
+test2 <- mutilated(test, list(M = "door3"))
+test2
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+test
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+test
+graphviz.plot(test)
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+test
+graphviz.plot(fitted)
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+test
+graphviz.plot(fitted)
+cpquery(fitted, evidence = list(D= "door1"))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+test
+graphviz.plot(fitted)
+cpquery(fitted, event = P, evidence = list(D= "door1"))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+test
+graphviz.plot(fitted)
+cpquery(fitted, event = P, evidence = list(D== "door1"))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+test
+graphviz.plot(fitted)
+cpquery(fitted, event = P, evidence = (D== "door1"))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+test
+graphviz.plot(fitted)
+cpquery(fitted, event = P, evidence = (D == "door1"))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+cpquery(fitted, event = P, evidence = (D == "door1"))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+cpquery(fitted, event = (P == 'door1'), evidence = (D == "door1"))
+test <- mutilated(fitted, list(D = "door1") & list(M = "door2"))
+test <- mutilated(fitted, (D = "door1") & (M = "door2"))
+test <- mutilated(fitted, list(D = "door1", M = "door2"))
+test
+test <- mutilated(fitted, list(M = "door2"))
+test
+ev <- list(D = "door1", M = "door2")
+# draw samples
+updated_dat <- cpdist(fitted, nodes = nodes(fitted), evidence = ev)
+ev <- list(D = "door1", M = "door2")
+# draw samples
+updated_dat <- cpdist(fitted, nodes = bnlearn::nodes(fitted), evidence = ev)
+ev <- list(D = "door1", M = "door2")
+# draw samples
+updated_dat <- cpdist(fitted, nodes = bnlearn::nodes(fitted), evidence = ev, method = "lq")
+ev <- list(D = "door1", M = "door2")
+# draw samples
+updated_dat <- cpdist(fitted, nodes = bnlearn::nodes(fitted), evidence = ev, method = "lw")
+ev <- list(D = "door1", M = "door2")
+# draw samples
+updated_dat <- cpdist(fitted, nodes = bnlearn::nodes(fitted), evidence = ev)
+ev <- list(D = "door1", M = "door2")
+# draw samples
+updated_dat <- cpdist(fitted, nodes = bnlearn::nodes(fitted), evidence = ev, method = "lw")
+ev <- list(D = "door1", M = "door2")
+# draw samples
+updated_dat <- cpdist(fitted, nodes = bnlearn::nodes(fitted), evidence = ev, method = "lw")
+updated_fit <- bn.fit(sdag, data = updated_dat)
+ev <- list(D = "door1", M = "door2")
+# draw samples
+updated_dat <- cpdist(fitted, nodes = bnlearn::nodes(fitted), evidence = ev, method = "lw")
+updated_fit <- bn.fit(sdag, data = updated_dat)
+graphviz.chart(updated_fit)
+nodes(fitted)
+ev <- list(D = "door1", M = "door2")
+# draw samples
+updated_dat <- cpdist(fitted, nodes = bnlearn::nodes(fitted), evidence = ev, method = "lw", n=1e6)
+updated_fit <- bn.fit(sdag, data = updated_dat)
+graphviz.chart(updated_fit)
+ev <- (D = "door1") & (M = "door2")
+ev <- (D = "door1") & (M = "door2")
+ev <- (D == "door1") & (M == "door2")
+# draw samples
+updated_dat <- cpdist(fitted, nodes = bnlearn::nodes(fitted), evidence = ev)
+updated_fit <- bn.fit(sdag, data = updated_dat)
+graphviz.chart(updated_fit)
+custom.fit(evidence)
+custom.fit(sdag, cpt, evidence)
+custom.fit(sdag, cpt, evidence=ev)
+install.packages("rjags")
+library(rjags)
+install.packages("coda")
+require(rjags)
+remove.packages("rjags")
+install.packages("rjags", type="source")
+install.packages(coda)
+install.packages("coda")

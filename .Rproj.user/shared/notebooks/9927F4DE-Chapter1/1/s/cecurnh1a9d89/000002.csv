@@ -1,0 +1,9 @@
+"0","```r
+cpquery(bn, 
+        event = (S == \"M\") & (T == \"car\"),
+        evidence = list(E = \"high\"), 
+        method = \"lw\"
+)
+```"
+"1","[1] 0.3515687
+"

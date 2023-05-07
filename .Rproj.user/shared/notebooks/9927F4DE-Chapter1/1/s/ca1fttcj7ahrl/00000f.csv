@@ -1,0 +1,6 @@
+"0","A.lv <- c(""young"", ""adult"", ""old"")"
+"0","S.lv <- c(""M"", ""F"")"
+"0","E.lv <- c(""high"", ""uni"")"
+"0","O.lv <- c(""emp"", ""self"")"
+"0","R.lv <- c(""small"", ""big"")"
+"0","T.lv <- c(""car"", ""train"", ""other"")"

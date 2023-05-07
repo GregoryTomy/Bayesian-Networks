@@ -1,0 +1,8 @@
+"0","data <- read_csv(""data/sachs1.csv"")"
+"2","[1mRows: [22m[34m853[39m [1mColumns: [22m[34m11[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[32mdbl[39m (11): praf, pmek, plcg, PIP2, PIP3, p44/42, pakts473, PKA, PKC, P38, pjnk"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."

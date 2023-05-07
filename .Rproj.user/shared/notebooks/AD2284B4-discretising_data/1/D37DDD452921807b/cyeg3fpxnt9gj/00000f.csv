@@ -1,0 +1,3 @@
+"0","# Convert the levels to 1, 2, and 3"
+"0","dfsachs %>% "
+"0","  mutate_at(vars(Raf:Jnk), ~factor(., labels = c('1', '2', '3')))"

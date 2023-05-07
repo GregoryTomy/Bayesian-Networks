@@ -1,0 +1,10 @@
+"0","```r
+# initialization
+x <- 1
+y <- 1
+prop_rate <- 2
+iterations <- 10000
+burnin <- 100
+
+sampled <- mh(x, y, prop_rate, iterations, burnin)
+```"

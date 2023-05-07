@@ -1,0 +1,425 @@
+---
+title: "Analysis Notebook"
+output: html_notebook
+---
+
+# Library
+```{r}
+library(tidyverse)
+library(bnlearn)
+library(gRain)
+library(lattice)
+library(Rgraphviz)
+```
+
+# Data
+```{r}
+# observational data - continuous
+obs_cont_df <- read_csv("data/cleaned_obser_cont.csv", show_col_types = FALSE) %>% 
+  as.data.frame()
+
+# observational data - discrete
+obs_disc_df <- read_csv("data/cleaned_obser_disc.csv", show_col_types = FALSE) %>% 
+  mutate_all(as.factor) %>% 
+  select(-INT) %>% 
+  as.data.frame()
+
+# full data - discretized
+full_df <- read_csv("data/cleaned_sachs.csv", show_col_types = FALSE) %>% 
+  mutate_all(as.factor) %>% 
+  as.data.frame()
+```
+
+
+# Target: DAG from Sachs et. al
+```{r}
+ldf <- "[PKC][PKA|PKC][Raf|PKC:PKA][Mek|PKC:PKA:Raf][Erk|Mek:PKA][Akt|Erk:PKA][P38|PKC:PKA][Jnk|PKC:PKA][Plcg][PIP3|Plcg][PIP2|Plcg:PIP3]"
+target <- model2network(ldf)
+graphviz.plot(target)
+```
+
+# Gaussian Bayesian Network 
+We know from the date exploration that the concentrations do not follow a Gaussian distribution. However, since it is the standard approach in the literature [CITATION] to assume that concentrations follow a Gaussian distribution we build one anyway.
+IMPORTANT: data frame should be continuous for these functions.
+```{r}
+dag_iamb <- inter.iamb(obs_cont_df, test = "cor")
+graphviz.plot(dag_iamb)
+```
+Only 8 arcs and none of them directed. Let's try a few more.
+```{r}
+dag_gs <- gs(obs_cont_df, test = "mc-cor")
+graphviz.plot(dag_iamb)
+```
+
+## Comparison functions
+```{r}
+
+# shd(taget, dag_iamb, debug = TRUE)
+unlist(compare(target, dag_iamb))
+compare(target = target, current = dag_iamb , arcs = TRUE)
+```
+# Model Averaging
+
+## Bootstrap resampling
+We learn with hill-climbing. Returns a dataframe of the strengths and the probability of the direction of arcs.
+IMPORTANT: boot strength only works with dataframes and not tibbles! Annoying.
+```{r}
+# set.seed(1345)
+boot <- boot.strength(
+  obs_disc_df,
+  R = 1000,
+  algorithm = "hc",
+  algorithm.args = list(score = "bde", iss = 10)
+)
+
+attr(boot, "threshold")
+```
+
+
+```{r}
+boot %>% 
+  filter(strength > 0.85 & direction >= 0.5) %>% 
+  arrange(desc(strength))
+```
+Let's lower the threshold
+```{r}
+boot %>% 
+  filter(strength > 0.5 & direction >= 0.5) %>%
+  arrange(desc(strength))
+```
+### Averaged Network
+```{r}
+avg_boot <- averaged.network(boot, threshold = 0.90)
+graphviz.plot(skeleton(avg_boot))
+```
+
+## Random Sampling
+
+```{r}
+nodes <- names(obs_disc_df)
+start_list <- random.graph(
+  nodes,
+  method = "melancon",
+  num = 1000,
+  every = 50
+)
+```
+
+```{r}
+hc_list <- map(start_list, ~hc(obs_disc_df, score = "bde", iss = 10, start = .x))
+```
+
+```{r}
+rand <- custom.strength(hc_list, nodes = nodes)
+rand %>% 
+  filter(strength > 0.85 & direction >= 0.5)
+```
+```{r}
+avg_rand <- averaged.network(rand, threshold = 0.90)
+pdf("paper/images/m2.pdf")
+graphviz.plot(avg_rand)
+dev.off()
+```
+
+# Significance Threshold
+
+```{r}
+averaged.network(boot)
+```
+
+# Full Data: With Interventions
+```{r}
+# convert to dataframe just to be safe
+fsachs <- read.table("data/sachs.interventional.txt", header = TRUE, colClasses = "factor")
+head(fsachs)
+```
+## Whitelisting
+We include INT and make all variables depend on it. `whitelist` forces the arcs in it to be present in the learned DAG
+```{r}
+whitelist <- matrix(
+  c(rep("INT", 11), names(fsachs)[1:11]),
+  ncol = 2
+)
+whitelist
+
+dag_wh <- tabu(
+  fsachs,
+  whitelist = whitelist,
+  score = "bde",
+  iss = 10, 
+  tabu = 50
+)
+```
+```{r}
+graphviz.plot(dag_wh)
+```
+
+```{r}
+dag_wh_1 <- hc(
+  fsachs,
+  whitelist = whitelist,
+  score = "bde",
+  iss = 10, 
+  tabu = 50
+)
+
+graphviz.plot(dag_wh_1)
+```
+
+
+```{r}
+dag_wh2 <- tabu(
+  full_df,
+  whitelist = whitelist,
+  score = "bde",
+  iss = 10, 
+  tabu = 50
+)
+```
+
+```{r}
+graphviz.plot(dag_wh2)
+```
+```{r}
+# dag_wh2 %>% 
+#   filter(strength > 0.85 & direction >= 0.5) %>% 
+#   arrange(desc(strength))
+```
+
+## Blacklisting
+```{r}
+tiers <- list("INT", names(fsachs)[1:11])
+bl <- tiers2blacklist(tiers)
+
+dag_bl <- tabu(
+  fsachs,
+  blacklist = bl,
+  score = "bde",
+  iss = 1,
+  tabu = 50
+)
+```
+
+```{r}
+graphviz.plot(dag_bl)
+```
+```{r}
+dag_bl_hc <- hc(
+  fsachs,
+  blacklist = bl,
+  score = "bde",
+  iss = 1
+)
+
+graphviz.plot(dag_bl_hc)
+
+```
+## MBDe
+```{r}
+INT <- map(1:11, ~which(fsachs$INT == .x))
+nodes <- names(fsachs)[1:11]
+names(INT) <- nodes
+```
+
+```{r, fig.height=8}
+start <- random.graph(
+  nodes = nodes,
+  method = "melancon",
+  num = 800,
+  burn.in = 10^5,
+  every = 100
+)
+
+netlist <- map(start, ~tabu(
+    fsachs[, 1:11],
+    score = "mbde",
+    exp = INT,
+    iss = 1,
+    start = .x,
+    tabu = 50
+  )
+)
+```
+
+```{r}
+intscore <- custom.strength(
+  netlist,
+  nodes = nodes,
+  cpdag = FALSE
+)
+intscore %>% 
+  filter(strength > 0.9) %>% 
+  arrange(desc(strength))
+```
+
+```{r}
+final_net <- averaged.network(intscore, threshold = 0.65)
+unlist(compare(target, final_net))
+```
+
+### Graph for Paper
+```{r, fig.height=7}
+mod_string <- modelstring(final_net)
+graph_net <- model2network(mod_string)
+# # set missed arcs
+# graph_net <- set.arc(graph_net, "Plcg", "PKC")
+# graph_net <- set.arc(graph_net, "PIP2", "PKC")
+# graph_net <- set.arc(graph_net, "PIP3", "Akt")
+#
+
+pdf("paper/images/final_net.pdf")
+gr <- graphviz.plot(graph_net, render = FALSE)
+fp_list <- c("Mek~Akt", "PKC~PIP3","Jnk~P38","Mek~Jnk","Raf~Akt")
+edgeRenderInfo(gr)$col[fp_list] = "red"
+edgeRenderInfo(gr)$lty[fp_list] = "dashed"
+
+edgeRenderInfo(gr)$col["Plcg~PIP3"] = "purple"
+edgeRenderInfo(gr)$lty["Plcg~PIP3"] = "dashed"
+
+renderGraph(gr)
+dev.off()
+```
+```{r}
+graphviz.plot(final_net)
+```
+
+```{r}
+graphviz.plot(target)
+```
+
+# Querying the Network
+```{r}
+fsachs2 <- fsachs[, 1:11] # we don't need INT 
+bn <- bn.fit(final_net, fsachs2, method = "bayes")
+```
+
+## Erk and Ark
+```{r}
+junc <- compile(as.grain(bn))
+
+# set evidence 
+erk_low <- setEvidence(junc, nodes = "Erk", states = "3")
+
+a <- querygrain(junc, nodes = "Akt")$Akt
+b <- querygrain(erk_low, nodes = "Akt")$Akt
+```
+## Erk and PKA
+```{r}
+# interventions on Erk would block all inlfuences from its parents
+erk_parents <- bnlearn::parents(bn, "Erk")
+# remove arcs from Erk parent
+inter_sachs <- drop.arc(final_net, "Mek", "Erk")
+inter_sachs <- drop.arc(inter_sachs, "PKA", "Erk")
+
+bn1 <- bn.fit(inter_sachs, fsachs2, method = "bayes")
+
+junc1 <- compile(as.grain(bn1))
+
+erk_low1 <- setEvidence(junc1, nodes = "Erk", states = "2")
+
+x <- querygrain(junc1, nodes = "PKA")$PKA
+y <- querygrain(erk_low1, nodes = "PKA")$PKA
+```
+## Table
+```{r}
+c <- data.frame(
+  Before = a,
+  After = b,
+  C = factor(
+    c("Low", "Medium", "High"),
+    levels = c("Low", "Medium", "High")
+  )
+)
+
+z <- data.frame(
+  Before = x, 
+  After = y, 
+  Z = factor(
+    c("Low", "Medium", "High"),
+    levels =  c("Low", "Medium", "High")))
+```
+
+```{r}
+c <- c %>% pivot_longer(
+  cols = c(Before, After), names_to = "State", values_to = "Probability"
+)
+
+c$State <- factor(c$State, levels = c("After", "Before"))
+c
+# ggplot(c, aes(x = C, y = "Probability", fill = "State")) +
+#   geom_col()
+
+```
+
+```{r}
+erk_akt <- ggplot(c, aes(x = C, y = Probability, fill = State)) +
+  geom_col(position = "dodge", color = "black", width = 0.6)  +
+  scale_fill_manual(values = c("Before" = "#c1cdcd", "After" = "#66B2FF"),
+                    breaks = c("Before", "After")) +
+  theme(axis.title = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks = element_blank(),
+        panel.background = element_rect(fill = "white"),
+        panel.border = element_rect(color = "black", fill = NA),
+        legend.position = c(0.87, 0.87)) +
+  guides(fill = guide_legend(title = NULL)) +
+  coord_flip()
+erk_akt
+
+ggsave("paper/images/erk_akt.pdf",
+  device = pdf,
+  width = 5,
+  height = 3
+)
+```
+
+
+```{r}
+z <- z %>% pivot_longer(
+  cols = c(Before, After), names_to = "State", values_to = "Probability"
+)
+
+z$State <- factor(z$State, levels = c( "After", "Before"))
+z
+```
+
+```{r}
+erk_pka <- ggplot(z, aes(x = Z, y = Probability, fill = State)) +
+  geom_col(position = "dodge", color="black", width = 0.6)  +
+  scale_fill_manual(values = c("Before" = "#c1cdcd", "After" = "#66B2FF"),
+                    breaks = c("Before", "After")) +
+  theme(axis.title = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks = element_blank(),
+        panel.background = element_rect(fill = "white"),
+        panel.border = element_rect(color = "black", fill = NA),
+        legend.position = c(0.87, 0.87)) +
+  guides(fill = guide_legend(title = NULL)) +
+  coord_flip()
+
+erk_pka
+ggsave("paper/images/erk_pka.pdf",
+  device = pdf,
+  width = 5,
+  height = 3
+)
+```
+
+```{r}
+erk_pka +
+  theme(legend.position = c(0.87, 0.77))
+```
+```{r}
+ggplot(c, aes(x = C, y = Probability, fill = State)) +
+  geom_col(position = "dodge", color = "black", width = 0.6)  +
+  scale_fill_manual(values = c("Before" = "#c1cdcd", "After" = "#66B2FF")) +
+  theme(axis.title = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks = element_blank(),
+        panel.background = element_rect(fill = "white"),
+        panel.border = element_rect(color = "black", fill = NA),
+        legend.position = c(0.87, 0.77)) +
+  guides(fill = guide_legend(title = NULL)) +
+  coord_flip()
+```
+

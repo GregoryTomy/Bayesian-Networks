@@ -1,0 +1,7 @@
+"0","```r
+est_para <- bn.fit(dag, data = cropdata1)
+
+# replacing parameter estimates with custom ones
+# in this case its the same as the default MLE in bn.fit
+est_para$C <- lm(C ~ N + W, data = cropdata1)
+```"

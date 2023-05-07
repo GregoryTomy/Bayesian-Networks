@@ -1,0 +1,12 @@
+"0","```r
+ci.test(
+  \"T\", \"O\", test = \"x2\", data = survey
+)
+```"
+"1","
+	Pearson's X^2
+
+data:  T ~ O  
+x2 = 1.7182, df = 2, p-value = 0.4235
+alternative hypothesis: true value is greater than 0
+"

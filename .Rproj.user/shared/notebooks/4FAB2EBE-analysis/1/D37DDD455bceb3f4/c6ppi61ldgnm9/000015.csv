@@ -1,0 +1,6 @@
+"0","c <- c %>% pivot_longer("
+"0","  cols = c(Before, After), names_to = ""State"", values_to = ""Probability"""
+"0",")"
+"0",""
+"0","c$State <- factor(c$State, levels = c(""After"", ""Before""))"
+"0","c"

@@ -1,0 +1,10 @@
+"0","```r
+score(dag, data = cropdata2, type = \"bic-g\")
+```"
+"1","[1] -416421.2
+"
+"0","```r
+score(dag, data = cropdata2, type = \"bge\")
+```"
+"1","[1] -416494.5
+"

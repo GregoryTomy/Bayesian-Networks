@@ -1,0 +1,3 @@
+"0","plot(ecdf(boot$strength), xlab = ""arc strengths"","
+"0","  ylab = ""cumulative distribution function"", main = """","
+"0","  xlim = c(0, 1.2), xaxt = 'n')"

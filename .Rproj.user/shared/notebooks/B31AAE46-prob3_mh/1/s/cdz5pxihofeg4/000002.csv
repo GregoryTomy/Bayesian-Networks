@@ -1,0 +1,6 @@
+"0","```r
+ggplot(df, aes(x = seq(dim(sampled)[1]), y = y)) +
+  geom_line() +
+  xlab(\"Iterations\") +
+  ylab(\"X\")
+```"

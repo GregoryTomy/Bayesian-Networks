@@ -1,0 +1,18 @@
+"0","```r
+score(dag, data = survey, type = 'bic')
+```"
+"1","[1] -2012.687
+"
+"0","```r
+# log Bde
+score(dag, data = survey, type = 'bde', iss = 10)
+```"
+"1","[1] -1998.284
+"
+"0","```r
+# remember iss here is the imaginary sample size - weights assigned to the flat
+# prior distribution in ters of the size of an imaginary sample.
+score(dag, data = survey, type = 'bde', iss = 1) # small iss yields the same score as bic
+```"
+"1","[1] -2015.647
+"

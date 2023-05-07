@@ -1,0 +1,8 @@
+"0","```r
+SxT <- cpdist(
+  bn,
+  nodes = c(\"S\", \"T\"),
+  evidence = (E == \"high\")
+)
+head(SxT)
+```"

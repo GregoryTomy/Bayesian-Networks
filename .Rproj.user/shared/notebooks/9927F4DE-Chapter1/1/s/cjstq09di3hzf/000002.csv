@@ -1,0 +1,10 @@
+"0","```r
+hlight <- list(
+  nodes = nodes(dag),
+  arcs = arcs(dag),
+  col = \"grey\",
+  textCol = \"grey\"
+)
+
+pp <- graphviz.plot(dag, highlight = hlight)
+```"

@@ -1,0 +1,60 @@
+"0","# observational"
+"0","df_obs <- data "
+"0","# intervention"
+"0","df_akt <- read_csv(""data/interventions/3. cd3cd28+aktinhib.csv"")"
+"2","[1mRows: [22m[34m911[39m [1mColumns: [22m[34m11[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[32mdbl[39m (11): praf, pmek, plcg, PIP2, PIP3, p44/42, pakts473, PKA, PKC, P38, pjnk"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","df_g76 <- read_csv(""data/interventions/4. cd3cd28+g0076.csv"")"
+"2","[1mRows: [22m[34m723[39m [1mColumns: [22m[34m11[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[32mdbl[39m (11): praf, pmek, plcg, PIP2, PIP3, p44/42, pakts473, PKA, PKC, P38, pjnk"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","df_psi <- read_csv(""data/interventions/5. cd3cd28+psitect.csv"")"
+"2","[1mRows: [22m[34m810[39m [1mColumns: [22m[34m11[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[32mdbl[39m (11): praf, pmek, plcg, PIP2, PIP3, p44/42, pakts473, PKA, PKC, P38, pjnk"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","df_u26 <- read_csv(""data/interventions/6. cd3cd28+u0126.csv"")"
+"2","[1mRows: [22m[34m799[39m [1mColumns: [22m[34m11[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[32mdbl[39m (11): praf, pmek, plcg, PIP2, PIP3, p44/42, pakts473, PKA, PKC, P38, pjnk"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","df_ly2 <- read_csv(""data/interventions/7. cd3cd28+ly.csv"")"
+"2","[1mRows: [22m[34m848[39m [1mColumns: [22m[34m11[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[32mdbl[39m (11): praf, pmek, plcg, PIP2, PIP3, p44/42, pakts473, PKA, PKC, P38, pjnk"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","df_pma <- read_csv(""data/interventions/8. pma.csv"")"
+"2","[1mRows: [22m[34m913[39m [1mColumns: [22m[34m11[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[32mdbl[39m (11): praf, pmek, plcg, pip2, pip3, p44/42, pakts473, PKA, PKC, P38, pjnk"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","df_b2p <- read_csv(""data/interventions/9. b2camp.csv"")"
+"2","[1mRows: [22m[34m707[39m [1mColumns: [22m[34m11[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[32mdbl[39m (11): praf, pmek, plcg, PIP2, PIP3, p44/42, pakts473, PKA, PKC, P38, pjnk"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","dfs <- list(df_obs, df_akt, df_g76, df_psi, df_u26, df_ly2, df_pma, df_b2p)"

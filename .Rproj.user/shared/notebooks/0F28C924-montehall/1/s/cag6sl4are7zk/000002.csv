@@ -1,0 +1,31 @@
+"0","```r
+junction <- compile(as.grain(bn))
+
+jdoor1<- setEvidence(
+  junction, 
+  nodes = \"C\",
+  states = \"door1\"
+)
+
+jdoor1<- setEvidence(
+  junction, 
+  nodes = \"M\",
+  states = \"door2\"
+)
+
+evidence <- list(C = \"door1\", M = \"door2\")
+
+jtest <- setEvidence(junction, nodes = names(evidence), states = unlist(evidence))
+# corresponds to P(T | S = F)
+querygrain(jtest, nodes = \"F\")
+```"
+"1","$F
+F
+door1 door2 door3 
+  0.5   0.0   0.5 
+"
+"0","```r
+querygrain(jtest, nodes = \"M\")
+```"
+"1","NULL
+"

@@ -1,0 +1,7 @@
+name = "BayesNets"
+uuid = "43455edb-78b6-427c-9f56-5a5c2e701c7c"
+authors = ["GregoryTomy <gregoryntomy@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+RCall = "6f49c342-dc21-5d91-9882-a32aef131414"

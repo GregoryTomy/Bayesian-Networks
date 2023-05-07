@@ -1,0 +1,7 @@
+"0","```r
+# degress of freedom
+(nlevels(survey[, \"T\"]) - 1) * (nlevels(survey[, \"E\"]) - 1) *
++ (nlevels(survey[, \"O\"]) * nlevels(survey[, \"R\"]))
+```"
+"1","[1] 8
+"

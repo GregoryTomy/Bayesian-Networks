@@ -1,0 +1,4 @@
+"0","```r
+stru_1 <- iamb(cropdata1, test = \"cor\")
+graphviz.plot(stru_1)
+```"

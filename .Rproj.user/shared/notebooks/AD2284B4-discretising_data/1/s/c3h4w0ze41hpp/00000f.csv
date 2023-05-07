@@ -1,0 +1,2 @@
+"0","boot %>% "
+"0","  filter(strength > 0.5 & direction >= 0.5)"

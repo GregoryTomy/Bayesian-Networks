@@ -1,0 +1,69 @@
+"0","library(tidyverse)"
+"0","library(bnlearn)"
+"0","library(gRain)"
+"2","Loading required package: gRbase
+"
+"2","
+Attaching package: ‘gRbase’
+
+"
+"2","The following objects are masked from ‘package:bnlearn’:
+
+    ancestors, children, nodes, parents
+
+"
+"0","library(lattice)"
+"0","library(Rgraphviz)"
+"2","Loading required package: graph
+"
+"2","Loading required package: BiocGenerics
+"
+"2","
+Attaching package: ‘BiocGenerics’
+
+"
+"2","The following object is masked from ‘package:bnlearn’:
+
+    score
+
+"
+"2","The following objects are masked from ‘package:lubridate’:
+
+    intersect, setdiff, union
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    combine, intersect, setdiff, union
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind, colnames,
+    dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep, grepl,
+    intersect, is.unsorted, lapply, Map, mapply, match, mget, order, paste, pmax,
+    pmax.int, pmin, pmin.int, Position, rank, rbind, Reduce, rownames, sapply,
+    setdiff, sort, table, tapply, union, unique, unsplit, which.max, which.min
+
+"
+"2","
+Attaching package: ‘graph’
+
+"
+"2","The following objects are masked from ‘package:bnlearn’:
+
+    degree, nodes, nodes<-
+
+"
+"2","The following object is masked from ‘package:stringr’:
+
+    boundary
+
+"
+"2","Loading required package: grid
+"

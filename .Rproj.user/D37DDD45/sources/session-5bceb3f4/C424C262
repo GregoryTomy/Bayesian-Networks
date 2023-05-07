@@ -1,0 +1,33 @@
+{
+    "id": "C424C262",
+    "path": "~/Documents/APPM/STAT 5630 Comp Bayes/Project/BayesNets/paper/paper.Rmd",
+    "project_path": "paper/paper.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1683309508699.0,
+    "source_on_save": true,
+    "relative_order": 6,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "342,12",
+        "scrollLine": "322",
+        "rmdVisualMode": "false",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "1921:28.18181800842285",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "1",
+        "marks": "<:340,52\n>:340,53",
+        "docOutlineSize": "169"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1683502340,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1683502340738,
+    "read_only": false,
+    "read_only_alternatives": []
+}

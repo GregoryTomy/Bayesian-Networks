@@ -1,0 +1,10 @@
+"0","```r
+SxT.ct = SxT.cpt * nrow(survey)
+chisq.test(SxT.ct)
+```"
+"1","
+	Pearson's Chi-squared test
+
+data:  SxT.ct
+X-squared = 0.00010049, df = 2, p-value = 0.9999
+"

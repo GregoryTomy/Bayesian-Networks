@@ -1,0 +1,17 @@
+"0","```r
+library(lattice)
+
+barchart(
+  Travel ~ Prob | Evidence, data = distr,
+  layout = c(3, 1), xlab = \"probability\",
+  scales = list(alternating = 1, tck = c(1, 0)),
+  strip = strip.custom(
+    factor.levels =c(expression(Pr(T)),
+                     expression(Pr({T} * \" | \" * {S == F})),
+                     expression(Pr({T} * \" | \" * {R == small})))),
+  panel = function(...) {
+    panel.barchart(...)
+    panel.grid(h = 0, v = -1)
+}
+)
+```"

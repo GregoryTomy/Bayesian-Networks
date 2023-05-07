@@ -1,0 +1,13 @@
+"0","```r
+est_para$C <- lm(C ~ N + W - 1, data = cropdata1)
+est_para$C
+```"
+"1","
+  Parameters of node C (Gaussian distribution)
+
+Conditional density: C | N + W
+Coefficients:
+(Intercept)            N            W  
+  0.0000000    0.2963220    0.7105197  
+Standard deviation of the residuals: 6.304969 
+"

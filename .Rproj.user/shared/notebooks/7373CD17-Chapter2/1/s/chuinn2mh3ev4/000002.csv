@@ -1,0 +1,4 @@
+"0","```r
+cropdata1 <- read.table(\"./data/cropdata1.txt\", header = TRUE)
+round(head(cropdata1), 2)
+```"

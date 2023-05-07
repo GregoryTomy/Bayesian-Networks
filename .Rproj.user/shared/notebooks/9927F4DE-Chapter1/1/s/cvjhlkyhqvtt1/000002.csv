@@ -1,0 +1,30 @@
+"0","```r
+Evidence <- factor(
+  c(rep(\"Unconditional\", 3), rep(\"Female\", 3), rep(\"Small City\", 3)),
+  levels = c(\"Unconditional\", \"Female\", \"Small City\")
+)
+Evidence
+```"
+"1","[1] Unconditional Unconditional Unconditional Female        Female        Female        Small City    Small City    Small City   
+Levels: Unconditional Female Small City
+"
+"0","```r
+Travel <- factor(
+  rep(c(\"car\", \"train\", \"other\"), 3),
+  levels = c(\"other\", \"train\", \"car\")
+)
+Travel
+```"
+"1","[1] car   train other car   train other car   train other
+Levels: other train car
+"
+"0","```r
+distr <- data.frame(
+  Evidence = Evidence, 
+  Travel = Travel,
+  Prob = c(0.5618, 0.2808, 0.15730, 0.5620, 0.2806,
+           0.1573, 0.4838, 0.4170, 0.0990)
+)
+
+distr
+```"

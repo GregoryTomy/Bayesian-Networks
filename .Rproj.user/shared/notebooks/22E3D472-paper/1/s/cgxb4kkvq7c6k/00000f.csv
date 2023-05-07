@@ -1,0 +1,8 @@
+"0","toy_dag <- model2network(""[Fuel?][Clean Spark Plugs][Fuel Meter Reading|Fuel?][Start?|Fuel?:Clean Spark Plugs]"")"
+"0",""
+"0","levels_Fu <- c(""Yes"", ""No"")"
+"0","levels_SP <- c(""Yes"", ""No"")"
+"0","levels_FM <- c(""Full"", ""Half"", ""Empty"")"
+"0","levels_S <- c(""Yes"", ""No"")"
+"0",""
+"0","graphviz.plot(toy_dag, layout = ""dot"")"

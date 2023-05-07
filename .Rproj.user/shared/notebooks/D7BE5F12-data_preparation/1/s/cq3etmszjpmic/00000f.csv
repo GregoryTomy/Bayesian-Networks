@@ -1,0 +1,7 @@
+"0","disc_list <- map(df_list[-8], ~discretize("
+"0","  .x,"
+"0","  method = ""hartemink"","
+"0","  breaks = 3,"
+"0","  ibreaks = 60, "
+"0","  idisc = ""quantile"""
+"0","))"

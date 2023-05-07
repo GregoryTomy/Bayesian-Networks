@@ -1,0 +1,13 @@
+"0","```r
+pi <- function(x, y){
+  x * y * exp(-x * y)
+}
+
+proposal <- function(x, y, prop_rate){
+  dunif(x, min = 1, max = 3) * dexp(y, rate = prop_rate)
+}
+
+# proposal <- function(x, y, prop_rate){
+#   0.5 * dexp(y, rate = prop_rate)
+# }
+```"

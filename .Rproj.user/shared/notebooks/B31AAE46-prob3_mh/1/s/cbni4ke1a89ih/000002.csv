@@ -1,0 +1,24 @@
+"0","```r
+mh <- function(x, y, prop_rate, iterations, burnin){
+  samples <- matrix(0, nrow = iterations, ncol = 2)
+  
+  for (i in 1:iterations) {
+    x_prop <- runif(1, min = 1, max = 3)
+    y_prop <- rexp(1, rate = prop_rate)
+    # calculate acceptance ratio
+    alpha <- 
+      pi(x_prop, y_prop) * proposal(x, y, prop_rate) / 
+      pi(x, y) * proposal(x_prop, y_prop, prop_rate)
+    # sample uniform
+    u <- runif(1)
+    
+    if (u <= alpha) {
+      x <- x_prop
+      y <- y_prop
+    }
+    
+    samples[i, ] <- c(x, y)
+  }
+  return(samples)
+}
+```"
