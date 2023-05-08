@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.22)  8 MAY 2023 12:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.22)  8 MAY 2023 12:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -705,7 +705,7 @@ ve/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texliv
 e/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (9 pages, 333216 bytes).
+Output written on paper.pdf (9 pages, 332423 bytes).
 PDF statistics:
  308 PDF objects out of 1000 (max. 8388607)
  247 compressed objects within 3 object streams
