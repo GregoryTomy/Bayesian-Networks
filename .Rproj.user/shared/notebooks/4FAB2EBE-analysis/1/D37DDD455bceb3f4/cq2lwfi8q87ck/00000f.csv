@@ -1,3 +1,0 @@
-"0","# convert to dataframe just to be safe"
-"0","fsachs <- read.table(""data/sachs.interventional.txt"", header = TRUE, colClasses = ""factor"")"
-"0","head(fsachs)"

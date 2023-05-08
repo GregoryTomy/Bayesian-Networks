@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.22)  7 MAY 2023 17:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.22)  8 MAY 2023 12:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -401,6 +401,9 @@ File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
 
 LaTeX Warning: Label `tab:toy_table' multiply defined.
 
+
+LaTeX Warning: Label `tab:toy_table' multiply defined.
+
 )
 \openout1 = `paper.aux'.
 
@@ -521,7 +524,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 181.
 
-Overfull \hbox (1.59795pt too wide) detected at line 227
+Overfull \hbox (1.59795pt too wide) detected at line 242
 \OML/ztmcm/m/it/9.85 P\OT1/ztmcm/m/n/9.85 (\OML/ztmcm/m/it/9.85 Fu; FM; SP; ST\
 OT1/ztmcm/m/n/9.85 ) = \OML/ztmcm/m/it/9.85 P\OT1/ztmcm/m/n/9.85 (\OML/ztmcm/m/
 it/9.85 Fu\OT1/ztmcm/m/n/9.85 )\OML/ztmcm/m/it/9.85 P\OT1/ztmcm/m/n/9.85 (\OML/
@@ -532,55 +535,54 @@ OMS/ztmcm/m/n/9.85 j\OML/ztmcm/m/it/9.85 Fu; SP\OT1/ztmcm/m/n/9.85 )
  []
 
 [2 <./paper_files/figure-latex/test-1.pdf>]
-Overfull \hbox (6.00266pt too wide) in paragraph at lines 345--354
+Overfull \hbox (6.00266pt too wide) in paragraph at lines 360--369
  [] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 1092) in paragraph at lines 403--406
+[3]
+Underfull \hbox (badness 1092) in paragraph at lines 418--421
 []\OT1/ptm/m/n/9.85 Interventional as-says gen-er-ated hun-dreds of data
  []
 
-[3]
-<images/skewed_dist.pdf, id=68, 210.7875pt x 131.49126pt>
+<images/skewed_dist.pdf, id=67, 210.7875pt x 131.49126pt>
 File: images/skewed_dist.pdf Graphic file (type pdf)
 <use images/skewed_dist.pdf>
-Package pdftex.def Info: images/skewed_dist.pdf  used on input line 437.
-(pdftex.def)             Requested size: 228.0pt x 142.23112pt.
-<images/nonlinear_rel.pdf, id=69, 210.7875pt x 131.49126pt>
-File: images/nonlinear_rel.pdf Graphic file (type pdf)
-<use images/nonlinear_rel.pdf>
-Package pdftex.def Info: images/nonlinear_rel.pdf  used on input line 442.
+Package pdftex.def Info: images/skewed_dist.pdf  used on input line 452.
 (pdftex.def)             Requested size: 228.0pt x 142.23112pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<paper_files/figure-latex/fig4-1.pdf, id=70, 212.795pt x 275.0275pt>
+<images/nonlinear_rel.pdf, id=68, 210.7875pt x 131.49126pt>
+File: images/nonlinear_rel.pdf Graphic file (type pdf)
+<use images/nonlinear_rel.pdf>
+Package pdftex.def Info: images/nonlinear_rel.pdf  used on input line 457.
+(pdftex.def)             Requested size: 228.0pt x 142.23112pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<paper_files/figure-latex/fig4-1.pdf, id=69, 212.795pt x 275.0275pt>
 File: paper_files/figure-latex/fig4-1.pdf Graphic file (type pdf)
 <use paper_files/figure-latex/fig4-1.pdf>
 Package pdftex.def Info: paper_files/figure-latex/fig4-1.pdf  used on input lin
-e 475.
+e 490.
 (pdftex.def)             Requested size: 212.79446pt x 275.02682pt.
 
-Underfull \hbox (badness 1303) in paragraph at lines 482--496
+Underfull \hbox (badness 1303) in paragraph at lines 497--511
 \OT1/ptm/m/n/9.85 the vari-ables, which are achieved through two main
  []
 
 
-Underfull \hbox (badness 2080) in paragraph at lines 482--496
+Underfull \hbox (badness 2080) in paragraph at lines 497--511
 \OT1/ptm/m/n/9.85 meth-ods: constraint-based and score-based meth-ods.
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 482--496
+Underfull \hbox (badness 1014) in paragraph at lines 497--511
 \OT1/ptm/m/n/9.85 in-de-pen-dence state-ments that hold true for the given
  []
 
 [4 <./images/skewed_dist.pdf> <./images/nonlinear_rel.pdf>]
-Underfull \hbox (badness 1728) in paragraph at lines 546--556
+Underfull \hbox (badness 1728) in paragraph at lines 561--571
 []\OT1/ptm/m/n/9.85 The fi-nal model (M5) used the ran-dom sam-pling
  []
 
@@ -588,104 +590,99 @@ Underfull \hbox (badness 1728) in paragraph at lines 546--556
 File: paper_files/figure-latex/fig5-1.pdf Graphic file (type pdf)
 <use paper_files/figure-latex/fig5-1.pdf>
 Package pdftex.def Info: paper_files/figure-latex/fig5-1.pdf  used on input lin
-e 570.
+e 585.
 (pdftex.def)             Requested size: 205.76823pt x 131.49092pt.
-<paper_files/figure-latex/fig6-1.pdf, id=107, 215.80624pt x 269.005pt>
+[5 <./paper_files/figure-latex/fig4-1.pdf>]
+<paper_files/figure-latex/fig6-1.pdf, id=135, 215.80624pt x 269.005pt>
 File: paper_files/figure-latex/fig6-1.pdf Graphic file (type pdf)
 <use paper_files/figure-latex/fig6-1.pdf>
 Package pdftex.def Info: paper_files/figure-latex/fig6-1.pdf  used on input lin
-e 587.
+e 602.
 (pdftex.def)             Requested size: 215.80571pt x 269.00433pt.
-<paper_files/figure-latex/fig7-1.pdf, id=108, 211.79124pt x 275.0275pt>
+<paper_files/figure-latex/fig7-1.pdf, id=136, 211.79124pt x 275.0275pt>
 File: paper_files/figure-latex/fig7-1.pdf Graphic file (type pdf)
 <use paper_files/figure-latex/fig7-1.pdf>
 Package pdftex.def Info: paper_files/figure-latex/fig7-1.pdf  used on input lin
-e 596.
+e 611.
 (pdftex.def)             Requested size: 211.79073pt x 275.02682pt.
-[5 <./paper_files/figure-latex/fig4-1.pdf>]
-<images/final_net.pdf, id=136, 505.89pt x 505.89pt>
+<images/final_net.pdf, id=137, 505.89pt x 505.89pt>
 File: images/final_net.pdf Graphic file (type pdf)
 <use images/final_net.pdf>
-Package pdftex.def Info: images/final_net.pdf  used on input line 612.
+Package pdftex.def Info: images/final_net.pdf  used on input line 627.
 (pdftex.def)             Requested size: 228.00346pt x 239.99919pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [6 <./paper_files/figure-latex/fig5-1.pdf> <./paper_files/figure-latex/fig6-1.p
 df> <./paper_files/figure-latex/fig7-1.pdf> <./images/final_net.pdf>]
-<images/erk_akt.pdf, id=172, 361.35pt x 216.81pt>
+<images/erk_akt.pdf, id=173, 361.35pt x 216.81pt>
 File: images/erk_akt.pdf Graphic file (type pdf)
 <use images/erk_akt.pdf>
-Package pdftex.def Info: images/erk_akt.pdf  used on input line 634.
+Package pdftex.def Info: images/erk_akt.pdf  used on input line 649.
 (pdftex.def)             Requested size: 228.0pt x 136.79944pt.
-<images/erk_pka.pdf, id=173, 361.35pt x 216.81pt>
+<images/erk_pka.pdf, id=174, 361.35pt x 216.81pt>
 File: images/erk_pka.pdf Graphic file (type pdf)
 <use images/erk_pka.pdf>
-Package pdftex.def Info: images/erk_pka.pdf  used on input line 639.
+Package pdftex.def Info: images/erk_pka.pdf  used on input line 654.
 (pdftex.def)             Requested size: 228.0pt x 136.79944pt.
-
-Underfull \vbox (badness 3690) has occurred while \output is active []
-
 [7 <./images/erk_akt.pdf> <./images/erk_pka.pdf>]
-<images/molecule_skews.pdf, id=196, 526.96875pt x 325.215pt>
+<images/molecule_skews.pdf, id=195, 526.96875pt x 325.215pt>
 File: images/molecule_skews.pdf Graphic file (type pdf)
 <use images/molecule_skews.pdf>
-Package pdftex.def Info: images/molecule_skews.pdf  used on input line 756.
+Package pdftex.def Info: images/molecule_skews.pdf  used on input line 771.
 (pdftex.def)             Requested size: 228.0pt x 140.70813pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.757 ...ots for the 11 phosphorylated molecules.}
+l.772 ...ots for the 11 phosphorylated molecules.}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.757 ...ots for the 11 phosphorylated molecules.}
+l.772 ...ots for the 11 phosphorylated molecules.}
                                                   
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<images/molecule_corr.pdf, id=197, 505.89pt x 505.89pt>
+<images/molecule_corr.pdf, id=196, 505.89pt x 505.89pt>
 File: images/molecule_corr.pdf Graphic file (type pdf)
 <use images/molecule_corr.pdf>
-Package pdftex.def Info: images/molecule_corr.pdf  used on input line 761.
+Package pdftex.def Info: images/molecule_corr.pdf  used on input line 776.
 (pdftex.def)             Requested size: 228.0pt x 228.00346pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.762 ...rix for the 11 phosphorylated molecules.}
+l.777 ...rix for the 11 phosphorylated molecules.}
                                                   
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<images/m2.pdf, id=198, 505.89pt x 505.89pt>
+<images/m2.pdf, id=197, 505.89pt x 505.89pt>
 File: images/m2.pdf Graphic file (type pdf)
 <use images/m2.pdf>
-Package pdftex.def Info: images/m2.pdf  used on input line 766.
+Package pdftex.def Info: images/m2.pdf  used on input line 781.
 (pdftex.def)             Requested size: 119.99573pt x 119.99573pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.767 ...}{M2 model network using random sampling}
+l.782 ...}{M2 model network using random sampling}
                                                   
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[8 <./images/molecule_skews.pdf> <./images/molecule_corr.pdf>]
 No file paper.bbl.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3088) has occurred while \output is active []
 
-[8 <./images/molecule_skews.pdf> <./images/molecule_corr.pdf> <./images/m2.pdf>
-] [9
-
-] (./paper.aux)
+[9 <./images/m2.pdf>] (./paper.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -693,13 +690,13 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11195 strings out of 475071
- 173573 string characters out of 5778909
- 530932 words of memory out of 5000000
+ 11196 strings out of 475071
+ 173580 string characters out of 5778909
+ 531935 words of memory out of 5000000
  32291 multiletter control sequences out of 15000+600000
  514945 words of font info for 127 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,10n,77p,296b,528s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,10n,77p,296b,502s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
@@ -708,10 +705,10 @@ ve/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texliv
 e/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (9 pages, 333041 bytes).
+Output written on paper.pdf (9 pages, 333216 bytes).
 PDF statistics:
- 307 PDF objects out of 1000 (max. 8388607)
- 246 compressed objects within 3 object streams
- 106 named destinations out of 1000 (max. 500000)
+ 308 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
+ 107 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

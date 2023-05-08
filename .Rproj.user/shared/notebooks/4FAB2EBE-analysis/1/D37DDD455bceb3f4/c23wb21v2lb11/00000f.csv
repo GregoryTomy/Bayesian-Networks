@@ -1,3 +1,0 @@
-"0","# dag_wh2 %>% "
-"0","#   filter(strength > 0.85 & direction >= 0.5) %>% "
-"0","#   arrange(desc(strength))"

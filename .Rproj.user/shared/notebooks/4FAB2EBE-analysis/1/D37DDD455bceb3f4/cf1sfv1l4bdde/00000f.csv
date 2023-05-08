@@ -1,7 +1,0 @@
-"0","dag_wh2 <- tabu("
-"0","  full_df,"
-"0","  whitelist = whitelist,"
-"0","  score = ""bde"","
-"0","  iss = 10, "
-"0","  tabu = 50"
-"0",")"

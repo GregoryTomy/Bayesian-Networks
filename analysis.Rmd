@@ -116,7 +116,9 @@ rand %>%
 ```
 ```{r}
 avg_rand <- averaged.network(rand, threshold = 0.90)
+pdf("paper/images/m2.pdf")
 graphviz.plot(avg_rand)
+dev.off()
 ```
 
 # Significance Threshold
@@ -342,7 +344,7 @@ c <- c %>% pivot_longer(
   cols = c(Before, After), names_to = "State", values_to = "Probability"
 )
 
-c$State <- factor(c$State, levels = c("Before", "After"))
+c$State <- factor(c$State, levels = c("After", "Before"))
 c
 # ggplot(c, aes(x = C, y = "Probability", fill = "State")) +
 #   geom_col()
@@ -352,7 +354,8 @@ c
 ```{r}
 erk_akt <- ggplot(c, aes(x = C, y = Probability, fill = State)) +
   geom_col(position = "dodge", color = "black", width = 0.6)  +
-  scale_fill_manual(values = c("Before" = "#66B2FF", "After" = "#c1cdcd")) +
+  scale_fill_manual(values = c("Before" = "#c1cdcd", "After" = "#66B2FF"),
+                    breaks = c("Before", "After")) +
   theme(axis.title = element_blank(),
         axis.text.x = element_blank(),
         axis.ticks = element_blank(),
@@ -361,6 +364,7 @@ erk_akt <- ggplot(c, aes(x = C, y = Probability, fill = State)) +
         legend.position = c(0.87, 0.87)) +
   guides(fill = guide_legend(title = NULL)) +
   coord_flip()
+erk_akt
 
 ggsave("paper/images/erk_akt.pdf",
   device = pdf,
@@ -375,14 +379,15 @@ z <- z %>% pivot_longer(
   cols = c(Before, After), names_to = "State", values_to = "Probability"
 )
 
-z$State <- factor(z$State, levels = c("Before", "After"))
+z$State <- factor(z$State, levels = c( "After", "Before"))
 z
 ```
 
 ```{r}
 erk_pka <- ggplot(z, aes(x = Z, y = Probability, fill = State)) +
   geom_col(position = "dodge", color="black", width = 0.6)  +
-  scale_fill_manual(values = c("Before" = "#c1cdcd", "After" = "#66B2FF")) +
+  scale_fill_manual(values = c("Before" = "#c1cdcd", "After" = "#66B2FF"),
+                    breaks = c("Before", "After")) +
   theme(axis.title = element_blank(),
         axis.text.x = element_blank(),
         axis.ticks = element_blank(),
@@ -392,6 +397,7 @@ erk_pka <- ggplot(z, aes(x = Z, y = Probability, fill = State)) +
   guides(fill = guide_legend(title = NULL)) +
   coord_flip()
 
+erk_pka
 ggsave("paper/images/erk_pka.pdf",
   device = pdf,
   width = 5,

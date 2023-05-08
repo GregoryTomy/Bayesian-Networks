@@ -1,3 +1,0 @@
-"0","INT <- map(1:11, ~which(fsachs$INT == .x))"
-"0","nodes <- names(fsachs)[1:11]"
-"0","names(INT) <- nodes"

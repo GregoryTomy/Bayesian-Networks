@@ -1,2 +1,0 @@
-"0","fsachs2 <- fsachs[, 1:11] # we don't need INT "
-"0","bn <- bn.fit(final_net, fsachs2, method = ""bayes"")"

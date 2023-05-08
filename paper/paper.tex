@@ -127,7 +127,7 @@ from Jensen and Nielsen (2007).
 
 \begin{quote}
 Suppose you find one morning that your car does not start. The starter
-is turning, but nothing happens. Your problem could by caused by a
+is turning, but nothing happens. Your problem could be caused by a
 number of factors. You can hear the starter roll, so the battery must be
 charged. Thus, you conclude that the the most likely causes are that the
 fuel was stolen overnight or that the spark plugs are dirty.
@@ -208,6 +208,21 @@ No & 0.01 & 0.99\\
 \end{tabular}
 \end{table}
 
+\begin{table}
+
+\caption{\label{tab:toy_table}$P(S|SP, Fu = No)$: probability of start (S) given if clean spark plug is dirty (SP) when there is no fuel.}
+\centering
+\begin{tabular}[t]{l|r|r}
+\hline
+  & SP = yes & SP = no\\
+\hline
+Yes & 0 & 0\\
+\hline
+No & 1 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
 \hypertarget{chain-rule-for-bayesian-networks.}{%
 \subsection{Chain Rule for Bayesian
 Networks.}\label{chain-rule-for-bayesian-networks.}}
@@ -254,7 +269,7 @@ story:
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
-  & Fu & SP\\
+  & Fuel? & Clean Spark Plugs?\\
 \hline
 Yes & 0.71 & 0.42\\
 \hline
@@ -335,7 +350,7 @@ under alternative conditions. Counterfactual thinking enables us to
 assess the causal effect of an intervention without needing to actually
 do the intervention. By exploring counterfactual scenarios, we gain a
 deeper understanding of the causal mechanisms at play and can evaluate
-the impact of interventions or policy changes.(Pearl and Mackenzie
+the impact of interventions or policy changes (Pearl and Mackenzie
 2018). Table \ref{t1} presents the ladder of causation with associated
 causal queries from the toy example.
 
@@ -440,7 +455,7 @@ Furthermore, all 11 molecules had outliers in the data.
 
 \begin{figure}[h]
  \centerline{\includegraphics[width=19pc]{images/nonlinear_rel.pdf}}
-  \caption{Nonlinear dependence relationship between Raf and PK.}\label{f3}
+  \caption{Nonlinear dependence relationship between Raf and PKA.}\label{f3}
 \end{figure}
 
 \hypertarget{data-preparation}{%

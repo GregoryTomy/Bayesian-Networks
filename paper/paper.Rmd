@@ -31,7 +31,7 @@ Bayesian Networks are probabilistic graphical models that offer a succinct and i
 ## Building blocks
 The present section explains Bayesian networks through a toy example from @jensen2007.
 
->Suppose you find one morning that your car does not start. The starter is turning, but nothing happens. Your problem could by caused by a number of factors. You can hear the starter roll, so the battery must be charged. Thus, you conclude that the the most likely causes are that the fuel was stolen overnight or that the spark plugs are dirty.
+>Suppose you find one morning that your car does not start. The starter is turning, but nothing happens. Your problem could be caused by a number of factors. You can hear the starter roll, so the battery must be charged. Thus, you conclude that the the most likely causes are that the fuel was stolen overnight or that the spark plugs are dirty.
 
 We build a Bayesian Network that depicts the causal relationships between events in 
 Fig \ref{fig:test}.
@@ -77,10 +77,9 @@ knitr::kable(st_prob[, , 1], caption = "$P(S|SP, Fu = Yes)$: probability of star
              col.names = c("SP = yes", "SP = no"), 
              row.names = TRUE,
              format = "latex")
-# knitr::kable(st_prob[, , 2], caption = "$P(S|SP, Fu = No)$: probability of start (S) given if clean spark plug is dirty (SP) when there is no fuel.",
-#              col.names = c("SP = yes", "SP = no"),
-#              row.names = c("S = yes", "S = no"),
-#              format = "latex")
+knitr::kable(st_prob[, , 2], caption = "$P(S|SP, Fu = No)$: probability of start (S) given if clean spark plug is dirty (SP) when there is no fuel.",
+             col.names = c("SP = yes", "SP = no"),
+             format = "latex")
 ```
 ## Chain Rule for Bayesian Networks.
 The chain rule for Bayesian Networks states that the joint probability of all the nodes in the network can be computed by multiplying the conditional probabilities of each node given its parent nodes. Although the joint probability distribution models the system completely, as the number of variables increases, calculating the joint probability directly becomes computationally challenging. The chain rule allows us to break this calculation into a product of smaller, more manageable conditional probabilities. Furthermore, by multiplying the appropriate updated conditional probabilities, the chain rule allows for the propagation of fresh evidence into the network. In addition, the chain rule provides an efficient, modular representation of the network.
@@ -117,7 +116,8 @@ ev1 <- setEvidence(
 ev1_tab <- querygrain(ev1, nodes = c("Fu", "SP"))
 tst <- as.data.frame(ev1_tab)
 
-knitr::kable(round(tst, 2), caption = "Car not starting.", format = "latex")
+knitr::kable(round(tst, 2), caption = "Car not starting.", format = "latex",
+             col.names = c("Fuel?", "Clean Spark Plugs?"))
 ```
 > To find out the issue, you look at the fuel meter. It shows half full, so you decide to clean the spark plugs
 
@@ -141,7 +141,8 @@ The ability to reason causally is a fundamental aspect of human cognition that w
 Bayesian networks, in and of themselves, do not imply causal links. However, BNs can be viewed as a type of causal network that contains probabilistic information regarding variable interactions.   The directed edges can be interpreted as causal relationships, and the conditional probabilities associated with each node can be interpreted as quantifying the causal relationship between parent nodes and the child nodes. BNs must conform to *d-separation* properties in order to accurately represent causality.  When two nodes are d-separated, all pathways between them are blocked, and information entering one has no influence on the other.
 
 ## Ladder of Causation
-The ladder of causation is a framework proposed by Judea Pearl for understanding different levels of causation. It consists of three rungs, each representing a distinct perspective on causality. The first rung of the ladder, *association*, captures the correlations of variables without explicitly establishing causal relationships. While observing associations can be informative, they do not provide a clear understanding of cause and effect. The second rung, *intervention*, enables us to establish causal directionality. By manipulating one variable and observing its impact on another, we gain insights into the cause-effect relationship between them. This forms the basis for experimental studies and interventions, enabling researchers to actively test hypotheses and make causal claims. The highest rung on the ladder, *counterfactuals*, adds another layer of complexity to causal reasoning. Here, we engage in reasoning about what would have happened under alternative conditions. Counterfactual thinking enables us to assess the causal effect of an intervention without needing to actually do the intervention. By exploring counterfactual scenarios, we gain a deeper understanding of the causal mechanisms at play and can evaluate the impact of interventions or policy changes.[@pearl2018]. Table \ref{t1} presents the ladder of causation with associated causal queries from the toy example.
+The ladder of causation is a framework proposed by Judea Pearl for understanding different levels of causation. It consists of three rungs, each representing a distinct perspective on causality. The first rung of the ladder, *association*, captures the correlations of variables without explicitly establishing causal relationships. While observing associations can be informative, they do not provide a clear understanding of cause and effect. The second rung, *intervention*, enables us to establish causal directionality. By manipulating one variable and observing its impact on another, we gain insights into the cause-effect relationship between them. This forms the basis for experimental studies and interventions, enabling researchers to actively test hypotheses and make causal claims. The highest rung on the ladder, *counterfactuals*, adds another layer of complexity to causal reasoning. Here, we engage in reasoning about what would have happened under alternative conditions. Counterfactual thinking enables us to assess the causal effect of an intervention without needing to actually do the intervention. By exploring counterfactual scenarios, we gain a deeper understanding of the causal mechanisms at play and can evaluate the impact of interventions or policy changes [@pearl2018]. Table \ref{t1} presents the ladder of causation with associated causal queries from the toy example.
+
 
 \begin{table}[h]
 \caption{Ladder of Causation}\label{t1}
@@ -184,7 +185,7 @@ Molecule concentrations were found to exhibit significant skewness (Fig \ref{f2}
 
 \begin{figure}[h]
  \centerline{\includegraphics[width=19pc]{images/nonlinear_rel.pdf}}
-  \caption{Nonlinear dependence relationship between Raf and PK.}\label{f3}
+  \caption{Nonlinear dependence relationship between Raf and PKA.}\label{f3}
 \end{figure}
 
 ## Data preparation
