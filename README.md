@@ -4,6 +4,15 @@ This study replicates Sachs et al.’s (2005) “Causal Protein-Signaling Networ
 
 Find the full paper [here](https://github.com/GregoryTomy/Bayesian-Networks/blob/master/paper/paper.pdf).
 
+## Overview
+
+Bayesian Networks provide a useful tool for the analysis of biological data due to their capacity to model complex relationships among variables, identify causal relationships, and make predictions. In biological research, BNs have been applied to a diverse range of problems, from elucidating genetic interactions to modeling cellular signaling pathways. The latter is explored in this paper. 
+
+Signaling pathways are complex networks of proteins that transmit signals within cells, and their disregulation can lead to many diseases, including cancer. BNs have been used to model these pathways and identify key proteins and interactions critical for the pathway’s function (Mukherjee and Speed 2008; Ciaccio et al. 2010). Signaling pathways data is ideal for BNs due to its highdimensional and complex nature, making it difficult to interpret using traditional statistical approach. BNs can
+model nonlinear and dynamic relationships among variables and can also handle incomplete or noisy data, making them robust in the face of data quality issues that are commonly encountered in biological research. Furthermore, BNs allow for the integration of prior knowledge into the analysis, such as known interactions among proteins, which can improve accuracy and interpretability of the results.
+
+An excellent illustration of utilizing protein-signaling data is presented in Sachs et al. (2005). BNs were used to automate derivation of causal influences in cellular signaling networks. The authors simultaneously measured multiple phosphorylated molecules in thousands of human single cells. The molecules were treated with generic and specific molecular interventions. The former was used to generate the network skeleton, whilst the latter was used to interpret causal influence relationships.
+
 ## Final Network:
 
 ![Final Network](paper/images/final_net.jpg)
