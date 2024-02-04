@@ -18,4 +18,4 @@ Bayesian networks can be queried to make probabilistic predictions about the net
 
 Similarly, despite being correlated, the model did not present an ark from $Erk$ to $PKA$. Perturbing the former should have no effect on the latter. Sachs et al. (2005) verified these predictions experimentally. In this project, the model was queried by instantiating $Erk$ to high. As expected, instantiating $Erk$ did effect the probability distribution of $Akt$, but did not effect $PKA$.
 
-![Erk to PKA](paper/images/erk_pka.jpeg)
+![Erk to PKA](paper/images/erk_pka.jpg)
