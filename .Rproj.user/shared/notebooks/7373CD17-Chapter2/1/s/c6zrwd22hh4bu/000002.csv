@@ -1,7 +1,0 @@
-"0","```r
-lmC <- lm(C ~ N + W, data = cropdata1)
-coef(lmC)
-```"
-"1","(Intercept)           N           W 
-  2.4026177   0.2734476   0.6858202 
-"

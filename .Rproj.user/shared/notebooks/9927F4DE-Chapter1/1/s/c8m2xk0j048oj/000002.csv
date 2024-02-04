@@ -1,6 +1,0 @@
-"0","```r
-bn.fit.barchart(
-  bn_mle$T, main = \"Travel\",
-  xlab = \"Pr(T | R, O)\", ylab = \"\"
-)
-```"

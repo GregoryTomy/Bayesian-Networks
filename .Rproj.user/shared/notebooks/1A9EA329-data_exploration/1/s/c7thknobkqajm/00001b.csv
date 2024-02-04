@@ -1,5 +1,0 @@
-"0",""
-"0","cor_matrix <- cor(data)"
-"0","# Customize the correlation plot"
-"0","pdf(""paper/images/molecule_corr.pdf"")"
-"0","corrplot(cor_matrix, method = ""color"", type = ""upper"", tl.col = ""black"", tl.srt = 45)"

@@ -1,9 +1,0 @@
-"0","```r
-ev <- (D == \"door1\") & (M == \"door2\")
-
-# draw samples
-updated_dat <- cpdist(fitted, nodes = bnlearn::nodes(fitted), evidence = ev)
-updated_fit <- bn.fit(sdag, data = updated_dat)
-
-graphviz.chart(updated_fit)
-```"

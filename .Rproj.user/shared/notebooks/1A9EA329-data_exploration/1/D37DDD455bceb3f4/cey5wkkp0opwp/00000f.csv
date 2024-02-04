@@ -1,6 +1,0 @@
-"0","ggplot(data, aes(pmek)) +"
-"0","  geom_histogram(aes(y = .nrow = nrow = ins = 50, color = ""white"") +"
-"2","Error: unexpected '=' in:
-""ggplot(data, aes(pmek)) +
-  geom_histogram(aes(y = .nrow =""
-"

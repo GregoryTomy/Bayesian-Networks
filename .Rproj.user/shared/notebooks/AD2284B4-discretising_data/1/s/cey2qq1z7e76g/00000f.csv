@@ -1,8 +1,0 @@
-"0","all.equal("
-"0","  averaged.network(boot, threshold = 0.5),"
-"0","  averaged.network(boot, threshold = 0.7)"
-"0",")"
-"1","[1]"
-"1"," ""Different number of directed/undirected arcs"""
-"1","
-"

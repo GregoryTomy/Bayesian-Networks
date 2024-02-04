@@ -1,2 +1,0 @@
-"0",""
-"0","plot(x, y2, type = ""l"", main = ""Plot using Horner's algorithm"", xlab = ""x"", ylab = ""y"")"

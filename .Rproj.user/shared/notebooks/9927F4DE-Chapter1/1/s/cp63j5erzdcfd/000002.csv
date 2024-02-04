@@ -1,9 +1,0 @@
-"0","```r
-cpquery(
-  bn,
-  event = (S == \"M\") & (T == \"car\"),
-  evidence = ((A == \"young\") & (E == \"uni\") | (A == \"adult\"))
-)
-```"
-"1","[1] 0.3346967
-"

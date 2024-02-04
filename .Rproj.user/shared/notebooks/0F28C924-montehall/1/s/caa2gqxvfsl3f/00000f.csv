@@ -1,2 +1,0 @@
-"0","sdag <- model2network(""[P][D][M|P:D]"")"
-"0","graphviz.plot(sdag, layout = ""dot"")"

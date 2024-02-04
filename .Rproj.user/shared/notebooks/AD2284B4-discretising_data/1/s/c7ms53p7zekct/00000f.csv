@@ -1,5 +1,0 @@
-"0","avg_boot <- averaged.network(boot, threshold = 0.85)"
-"0","avg_boot <- skeleton(avg_boot)"
-"0","graphviz.plot(avg_boot)"
-"2","Loading required namespace: Rgraphviz
-"

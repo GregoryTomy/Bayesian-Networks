@@ -1,7 +1,0 @@
-"0","junc <- compile(as.grain(bn))"
-"0",""
-"0","# set evidence "
-"0","erk_low <- setEvidence(junc, nodes = ""Erk"", states = ""3"")"
-"0",""
-"0","a <- querygrain(junc, nodes = ""Akt"")$Akt"
-"0","b <- querygrain(erk_low, nodes = ""Akt"")$Akt"

@@ -1,4 +1,0 @@
-"0","```r
-graphviz.chart(fitted, type = \"barprob\", strip.bg = \"lightskyblue\", 
-                bar.col = \"darkgreen\", scale = c(2,3))
-```"

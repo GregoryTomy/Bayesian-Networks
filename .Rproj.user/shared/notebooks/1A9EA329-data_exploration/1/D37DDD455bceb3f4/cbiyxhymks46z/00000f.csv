@@ -1,4 +1,0 @@
-"0","df_long <- data %>% gather(key = ""molecules"", value = ""concentration"")"
-"0",""
-"0","ggplot(df_long, aes(molecules, concentration)) +"
-"0","  geom_boxplot()"

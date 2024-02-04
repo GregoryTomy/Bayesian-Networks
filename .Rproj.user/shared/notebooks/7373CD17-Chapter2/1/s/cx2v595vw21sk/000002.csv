@@ -1,4 +1,0 @@
-"0","```r
-dag <- model2network(\"[G][E][V|G:E][N|V][W|V][C|N:W]\")
-graphviz.plot(dag)
-```"

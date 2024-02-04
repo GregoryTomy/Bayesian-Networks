@@ -1,3 +1,0 @@
-"0","```r
-gbn <- custom.fit(dag, dist = dis_list)
-```"

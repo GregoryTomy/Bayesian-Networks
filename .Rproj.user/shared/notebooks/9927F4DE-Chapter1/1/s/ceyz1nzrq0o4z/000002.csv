@@ -1,5 +1,0 @@
-"0","```r
-modelstring(my_dag_2)
-```"
-"1","[1] \"[A][S][E|A:S][O|E][R|E][T|O:R]\"
-"

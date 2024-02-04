@@ -1,7 +1,0 @@
-"0","```r
-mdag <- model2network(
-  \"[C][P][S][M|C:P][F|M:C:S][R|P:F]\"
-)  
-graphviz.plot(mdag, layout = \"circo\")
-
-```"

@@ -1,6 +1,0 @@
-"0","```r
-survey <- read.table(\"survey.txt\", header = TRUE)
-survey <- data.frame(lapply(survey, as.factor))
-
-head(survey)
-```"

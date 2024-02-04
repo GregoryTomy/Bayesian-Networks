@@ -1,6 +1,0 @@
-"0","```r
-evidence <- list(C = \"door1\")
-cpquery(bn, event = (F == \"door1\"), evidence = (C == \"door1\"))
-```"
-"1","[1] 0.4942461
-"

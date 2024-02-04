@@ -1,6 +1,0 @@
-"0","```r
-unlist(condi4joint(mn_rbmn, par = \"C\", pour = \"V\", x2 = NULL))
-```"
-"1","   mu.C     rho   gamma 
-24.0000  0.5200 72.9625 
-"

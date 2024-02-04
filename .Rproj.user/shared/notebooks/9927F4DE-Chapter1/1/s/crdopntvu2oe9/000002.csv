@@ -1,5 +1,0 @@
-"0","```r
-arc.strength(
-  dag, data = survey, criterion = \"x2\"
-)
-```"

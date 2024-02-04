@@ -1,4 +1,0 @@
-"0","# knitr::kable(st_prob[, , 2], caption = ""$P(S|SP, Fu = No)$: probability of start (S) given if clean spark plug is dirty (SP) when there is no fuel."","
-"0","#              col.names = c(""SP = yes"", ""SP = no""),"
-"0","#              row.names = c(""S = yes"", ""S = no""),"
-"0","#              format = ""latex"")"

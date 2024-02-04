@@ -1,3 +1,0 @@
-"0","```r
-arc.strength(learned, data = survey, criterion = \"bic\")
-```"

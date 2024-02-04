@@ -1,7 +1,0 @@
-"0","boot <- boot.strength("
-"0","  dsachs,"
-"0","  R = 500, # number of network structures"
-"0","  algorithm = ""hc"", # hill climbing"
-"0","  algorithm.args = list(score = ""bde"", iss = 10) # Bayesian Dirichlet equivalent uniform"
-"0",")"
-"0",""

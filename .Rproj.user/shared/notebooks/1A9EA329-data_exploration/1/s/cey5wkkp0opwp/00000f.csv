@@ -1,3 +1,0 @@
-"0","ggplot(data, aes(pmek)) +"
-"0","  geom_histogram(aes(y = ..density..), bins = 50, color = ""white"") +"
-"0","  geom_density()"
