@@ -13,6 +13,11 @@ model nonlinear and dynamic relationships among variables and can also handle in
 
 An excellent illustration of utilizing protein-signaling data is presented in Sachs et al. (2005). BNs were used to automate derivation of causal influences in cellular signaling networks. The authors simultaneously measured multiple phosphorylated molecules in thousands of human single cells. The molecules were treated with generic and specific molecular interventions. The former was used to generate the network skeleton, whilst the latter was used to interpret causal influence relationships.
 
+## Data
+Two data sets were used in the project. The first observation-only dataset was obtained from Sachs et al. (2005) supplementary materials. The observational data
+served as the basis for exploratory and preliminary analysis. There were 852 observations for the 11 phosphorylated molecules. The second data set was obtained through
+Scutari and Denis (2021)’s analysis. It contained 5400 data points which included the observation-only data in addition to stimulatory and inhibitory intervention data. A 12th column, INT, recorded the intervened molecules.
+
 ## Final Network:
 
 ![Final Network](paper/images/final_net.jpg)
