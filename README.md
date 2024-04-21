@@ -2,7 +2,9 @@
 
 This study replicates Sachs et al.’s (2005) “Causal Protein-Signaling Networks Derived from Multiparameter Single-Cell Data” using Bayesian networks (BN). We explore the fundamental concepts of BNs, emphasizing their role in causal inference. **We successfully  reconstructed the 17 arcs reported in the original paper using the Tabu search algorithm with MBDe score**. Five false positives were  identified in our analysis, indicating potential overinclusiveness of the model. We discuss the implications of these findings and  highlight the practical applications of BNs in unraveling causal relationships in complex biological systems. Additionally, we address the replication issues encountered during the project.
 
-Find the full paper [here](https://github.com/GregoryTomy/Bayesian-Networks/blob/master/paper/paper.pdf).
+## Links
+1. Find the full paper [here](https://github.com/GregoryTomy/Bayesian-Networks/blob/master/paper/paper.pdf).
+2. Find the accompanying presentation [here](https://youtu.be/AYW6eY8ohDo).
 
 ## Overview
 
