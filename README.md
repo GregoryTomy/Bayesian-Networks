@@ -4,7 +4,7 @@ This study replicates Sachs et al.’s (2005) “Causal Protein-Signaling Networ
 
 ## Links
 1. Find the full paper [here](https://github.com/GregoryTomy/Bayesian-Networks/blob/master/paper/paper.pdf).
-2. Find the accompanying presentation [here](https://youtu.be/AYW6eY8ohDo).
+2. Find the accompanying presentation [here](https://youtu.be/XolR4f9xkcI).
 
 ## Overview
 
